@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ótica Nova Visão | Sua saúde, nossa prioridade</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            navy: '#0A2540',      /* Azul Marinho Principal da Logo */
+                            'navy-light': '#1D3B5E',
+                            cyan: '#00A8CC',      /* Azul Ciano do Olho */
+                            'cyan-dark': '#0084A3',
+                            'cyan-light': '#E0F7FA',
+                            slate: '#F4F7FA'
+                        }
+                    },
+                    boxShadow: {
+                        'glow': '0 10px 25px -5px rgba(0, 168, 204, 0.3)',
+                        'card': '0 4px 20px rgba(10, 37, 64, 0.06)'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #0A2540 0%, #00A8CC 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(0, 168, 204, 0.12) 0%, rgba(255, 255, 255, 0) 60%),
+                        linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00A8CC;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- BANNER DE AVISO SUPERIOR -->
+    <div class="bg-brand-navy text-white text-xs md:text-sm py-2 px-4 text-center font-medium flex items-center justify-center gap-2">
+        <span class="bg-brand-cyan text-slate-900 text-[10px] uppercase font-bold px-2 py-0.5 rounded-full">Oferta Especiais</span>
+        <span>Exame de vista gratuito na compra do seu óculos completo!</span>
+        <a href="#agendar" class="underline hover:text-brand-cyan transition-colors ml-1 hidden sm:inline">Agende agora &rarr;</a>
+    </div>
+
+    <!-- NAVBAR FIXA -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- LOGO VETORIAL IDÊNTICO À MARCA -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="relative w-12 h-10 flex items-center justify-center">
+                    <!-- Eye SVG Logo Structure based on Brand -->
+                    <svg viewBox="0 0 120 70" class="w-full h-full transform group-hover:scale-105 transition-transform duration-300">
+                        <!-- Outer Cyan Arc -->
+                        <path d="M10,35 Q60,-15 110,35 Q60,85 10,35 Z" fill="none" stroke="#00A8CC" stroke-width="8" stroke-linecap="round"/>
+                        <!-- Inner Deep Navy Arch -->
+                        <path d="M25,35 Q60,0 95,35 Q60,70 25,35 Z" fill="none" stroke="#0A2540" stroke-width="9" stroke-linecap="round"/>
+                        <!-- Iris / Pupil -->
+                        <circle cx="60" cy="35" r="14" fill="#0A2540"/>
+                        <circle cx="55" cy="30" r="4.5" fill="#FFFFFF"/>
+                        <circle cx="64" cy="38" r="2" fill="#FFFFFF"/>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xs tracking-widest text-brand-cyan font-bold uppercase leading-none">ÓTICA</span>
+                    <span class="text-lg md:text-xl font-extrabold text-brand-navy tracking-tight leading-tight">NOVA VISÃO</span>
+                </div>
+            </a>
+
+            <!-- MENU DESKTOP -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-700">
+                <a href="#hero" class="hover:text-brand-cyan transition-colors">Início</a>
+                <a href="#produtos" onclick="filterCategory('armacoes')" class="hover:text-brand-cyan transition-colors">Armações</a>
+                <a href="#produtos" onclick="filterCategory('sol')" class="hover:text-brand-cyan transition-colors">Óculos de Sol</a>
+                <a href="#produtos" onclick="filterCategory('lentes')" class="hover:text-brand-cyan transition-colors">Lentes de Contato</a>
+                <a href="#servicos" class="hover:text-brand-cyan transition-colors">Serviços</a>
+                <a href="#localizacao" class="hover:text-brand-cyan transition-colors">Contato</a>
+            </nav>
+
+            <!-- AÇÕES E CARRINHO -->
+            <div class="flex items-center space-x-4">
+                <!-- Botão Carrinho com Badge -->
+                <button id="cart-btn" onclick="toggleCartDrawer()" class="relative p-2.5 text-slate-700 hover:text-brand-cyan hover:bg-slate-100 rounded-full transition-all focus:outline-none" aria-label="Carrinho de Compras">
+                    <i class="fa-solid fa-bag-shopping text-xl"></i>
+                    <span id="cart-badge" class="absolute -top-1 -right-1 bg-brand-cyan text-white text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white shadow-sm transition-transform scale-0">0</span>
+                </button>
+
+                <!-- CTA WhatsApp Direto -->
+                <a href="https://wa.me/5582996402650?text=Ol%C3%A1!%20Gostaria%20de%20atendimento%20da%20%C3%93tica%20Nova%20Vis%C3%A3o." target="_blank" class="hidden sm:inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2.5 rounded-full font-bold text-sm shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Falar no Whats</span>
+                </a>
+
+                <!-- Mobile Menu Toggle Button -->
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- MOBILE MENU DRAWER -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#hero" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-cyan">Início</a>
+            <a href="#produtos" onclick="filterCategory('armacoes'); toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-cyan">Armações</a>
+            <a href="#produtos" onclick="filterCategory('sol'); toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-cyan">Óculos de Sol</a>
+            <a href="#produtos" onclick="filterCategory('lentes'); toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-cyan">Lentes de Contato</a>
+            <a href="#servicos" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-cyan">Serviços</a>
+            <a href="#agendar" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-cyan">Agendar Exame</a>
+            <a href="#localizacao" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-cyan">Nossa Loja</a>
+            <a href="https://wa.me/5582996402650?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20%C3%93tica%20Nova%20Vis%C3%A3o." target="_blank" class="flex items-center justify-center gap-2 bg-emerald-500 text-white py-3 rounded-xl font-bold w-full mt-2">
+                <i class="fa-brands fa-whatsapp text-lg"></i> Atendimento via WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <!-- BANNER HERO PRINCIPAL COM OFERTAS -->
+    <section id="hero" class="hero-gradient relative overflow-hidden py-12 md:py-20 border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Coluna de Texto & Ofertas -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-brand-cyan-light text-brand-cyan-dark px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-sparkles"></i> Sua Saúde Visual em Primeiro Lugar
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-brand-navy tracking-tight leading-tight">
+                        Enxergue o mundo com <span class="gradient-text">mais clareza e estilo</span>.
+                    </h1>
+                    
+                    <p class="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Na **Ótica Nova Visão**, unimos tecnologia de precisão óptica, saúde visual e as melhores tendências de armações para o seu estilo único.
+                    </p>
+
+                    <!-- Destaques de Ofertas Relâmpago -->
+                    <div class="grid grid-cols-3 gap-3 pt-2 max-w-lg mx-auto lg:mx-0">
+                        <div class="bg-white p-3 rounded-2xl shadow-card border border-slate-100 text-center">
+                            <span class="block text-2xl font-black text-brand-cyan">50% OFF</span>
+                            <span class="text-xs text-slate-500 font-medium">Na 2ª Armação</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-2xl shadow-card border border-slate-100 text-center">
+                            <span class="block text-2xl font-black text-brand-navy">GRÁTIS</span>
+                            <span class="text-xs text-slate-500 font-medium">Exame Visual*</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-2xl shadow-card border border-slate-100 text-center">
+                            <span class="block text-2xl font-black text-brand-cyan">10x</span>
+                            <span class="text-xs text-slate-500 font-medium">Sem juros no cartão</span>
+                        </div>
+                    </div>
+
+                    <!-- Call to Action Principal -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#produtos" class="w-full sm:w-auto bg-brand-navy hover:bg-brand-navy-light text-white px-8 py-4 rounded-xl font-bold text-base shadow-lg hover:shadow-xl transition-all text-center flex items-center justify-center gap-3 group">
+                            <span>Ver Coleção 2026</span>
+                            <i class="fa-solid fa-arrow-right text-brand-cyan group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="#agendar" class="w-full sm:w-auto bg-white hover:bg-slate-50 text-brand-navy border-2 border-brand-navy/10 px-7 py-4 rounded-xl font-bold text-base transition-all text-center flex items-center justify-center gap-2">
+                            <i class="fa-regular fa-calendar-check text-brand-cyan"></i>
+                            <span>Agendar Consulta</span>
+                        </a>
+                    </div>
+
+                    <!-- Selos de Confiança -->
+                    <div class="pt-6 border-t border-slate-200/60 flex items-center justify-center lg:justify-start gap-6 text-xs font-medium text-slate-500">
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-check text-emerald-500 text-sm"></i> Garantia de Adaptação</span>
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-truck-fast text-brand-cyan text-sm"></i> Entrega Rápida</span>
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-award text-amber-500 text-sm"></i> Laboratório Digital</span>
+                    </div>
+                </div>
+
+                <!-- Coluna da Imagem Visual Hero -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Círculo Decorativo de Fundo -->
+                        <div class="absolute -top-6 -left-6 w-72 h-72 bg-brand-cyan/20 rounded-full filter blur-3xl opacity-70"></div>
+                        <div class="absolute -bottom-6 -right-6 w-72 h-72 bg-brand-navy/10 rounded-full filter blur-3xl opacity-70"></div>
+                        
+                        <!-- Imagem Principal -->
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                            <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=800&q=80" alt="Modelo usando óculos estilo Ótica Nova Visão" class="w-full h-[460px] object-cover hover:scale-105 transition-transform duration-700">
+                            
+                            <!-- Card Flutuante de Avaliação -->
+                            <div class="absolute bottom-6 left-6 right-6 glass-card p-4 rounded-2xl shadow-lg border border-white/40 flex items-center gap-4">
+                                <div class="bg-brand-cyan/10 p-3 rounded-xl text-brand-cyan font-bold text-xl">
+                                    <i class="fa-solid fa-face-smile"></i>
+                                </div>
+                                <div>
+                                    <div class="flex text-amber-400 text-xs mb-1">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="text-xs font-bold text-brand-navy">+5.000 clientes satisfeitos</p>
+                                    <p class="text-[11px] text-slate-500">"Atendimento humanizado e lentes perfeitas!"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SESSÃO DE SERVIÇOS EM SAÚDE VISUAL E ESTILO -->
+    <section id="servicos" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-brand-cyan font-bold text-sm tracking-widest uppercase">Especialista em saúde visual e estilo 👓</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-navy">Sua Saúde, Nossa Prioridade 🩵</h2>
+                <p class="text-slate-600 text-base">
+                    Unimos a precisão técnica da optometria moderna com a consultoria visagista para encontrar o óculos ideal para seu formato de rosto e necessidade de visão.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Serviço 1 -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-brand-cyan/40 hover:shadow-card transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-brand-cyan/10 text-brand-cyan rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-cyan group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-glasses"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-navy mb-3">Óculos de Grau de Alta Precisão</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Lentes digitais multifocais, com proteção contra luz azul e tratamento antirreflexo avançado para maior conforto visual.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-2">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Lentes Visão Simples e Multifocal</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Filtro de Luz Azul para Telas</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Lentes Fotosseguras / Transition</li>
+                    </ul>
+                </div>
+
+                <!-- Serviço 2 -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-brand-cyan/40 hover:shadow-card transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-brand-cyan/10 text-brand-cyan rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-cyan group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-sun"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-navy mb-3">Óculos de Sol com Proteção UV400</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Proteja seus olhos com estilo. Todos os nossos óculos solares possuem 100% de proteção UV e opção de grau solar.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-2">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Lentes Polarizadas Anti-Ofuscamento</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Óculos de Sol Com Grau Personalizado</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Principais Marcas & Tendências</li>
+                    </ul>
+                </div>
+
+                <!-- Serviço 3 -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-brand-cyan/40 hover:shadow-card transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-brand-cyan/10 text-brand-cyan rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-cyan group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-navy mb-3">Lentes de Contato Especializadas</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Adaptação acompanhada com lentes de contato gelatinosas, diárias, mensais ou estéticas com todo conforto necessário.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-2">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Lentes para Astigmatismo e Miopia</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Teste de Adaptação Orientado</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Soluções de Limpeza e Conservação</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Banner Adicional de Visagismo -->
+            <div class="mt-12 bg-gradient-to-r from-brand-navy to-brand-navy-light rounded-3xl p-8 md:p-12 text-white flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
+                <div class="space-y-3 text-center md:text-left">
+                    <span class="text-brand-cyan font-bold text-xs uppercase tracking-wider">Consultoria Estética Gratuita</span>
+                    <h3 class="text-2xl sm:text-3xl font-bold">Dúvida sobre qual armação combina com seu rosto?</h3>
+                    <p class="text-slate-300 text-sm max-w-xl">
+                        Nossa equipe especializada utiliza técnicas de visagismo para recomendar o formato perfeito para valorizar suas traços faciais.
+                    </p>
+                </div>
+                <a href="#agendar" class="bg-brand-cyan hover:bg-brand-cyan-dark text-slate-900 font-extrabold px-8 py-4 rounded-xl shadow-lg transition-all text-center whitespace-nowrap">
+                    Agendar Consultoria Grátis
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SESSÃO DE PRODUTOS CATÁLOGO E ADIÇÃO AO CARRINHO -->
+    <section id="produtos" class="py-16 md:py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-brand-cyan font-bold text-sm tracking-widest uppercase">Catálogo Selecionado</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-navy mt-1">Armações, Sol & Lentes</h2>
+                    <p class="text-slate-600 text-sm mt-2">Adicione os itens ao seu carrinho e envie seu pedido direto para nosso WhatsApp!</p>
+                </div>
+
+                <!-- Filtros por Categoria -->
+                <div class="flex flex-wrap gap-2" id="filter-buttons">
+                    <button onclick="filterCategory('all')" class="filter-btn active px-5 py-2.5 rounded-full text-xs font-bold transition-all bg-brand-navy text-white shadow-md" data-category="all">Todos</button>
+                    <button onclick="filterCategory('armacoes')" class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all bg-white text-slate-700 hover:bg-slate-100" data-category="armacoes">Armações de Grau</button>
+                    <button onclick="filterCategory('sol')" class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all bg-white text-slate-700 hover:bg-slate-100" data-category="sol">Óculos de Sol</button>
+                    <button onclick="filterCategory('lentes')" class="filter-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all bg-white text-slate-700 hover:bg-slate-100" data-category="lentes">Lentes de Contato</button>
+                </div>
+            </div>
+
+            <!-- GRID DE PRODUTOS DINÂMICOS -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="products-grid">
+                <!-- Injetado via JS -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SESSÃO CAPTAÇÃO DE LEAD / AGENDAMENTO VIA WHATSAPP -->
+    <section id="agendar" class="py-16 md:py-24 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-slate-900 rounded-3xl overflow-hidden shadow-2xl grid grid-cols-1 lg:grid-cols-12">
+                
+                <!-- Imagem/Informativo do Agendamento -->
+                <div class="lg:col-span-5 relative p-8 md:p-12 bg-gradient-to-br from-brand-navy to-slate-900 text-white flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <span class="bg-brand-cyan/20 text-brand-cyan text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block">Atendimento Rápido</span>
+                        <h3 class="text-3xl font-extrabold leading-tight">Agende seu Exame ou Solicite um Orçamento de Receita</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Preencha os dados abaixo. Ao clicar em enviar, você será direcionado para o WhatsApp com seu agendamento pré-formatado!
+                        </p>
+                    </div>
+
+                    <div class="mt-8 space-y-4 text-xs text-slate-300">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-brand-cyan/20 flex items-center justify-center text-brand-cyan">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <span>Resposta média em menos de 10 minutos em horário comercial.</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-brand-cyan/20 flex items-center justify-center text-brand-cyan">
+                                <i class="fa-solid fa-file-prescription"></i>
+                            </div>
+                            <span>Aceitamos e cobrimos orçamentos de receitas médicas.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulário de Captação -->
+                <div class="lg:col-span-7 p-8 md:p-12 bg-white">
+                    <form id="lead-form" onsubmit="handleLeadSubmit(event)" class="space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2" for="lead-name">Seu Nome Completo *</label>
+                                <input type="text" id="lead-name" required placeholder="Ex: Maria Silva" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-cyan focus:ring-2 focus:ring-brand-cyan/20 outline-none text-sm transition-all">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2" for="lead-phone">Telefone / WhatsApp *</label>
+                                <input type="tel" id="lead-phone" required placeholder="(82) 99999-9999" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-cyan focus:ring-2 focus:ring-brand-cyan/20 outline-none text-sm transition-all">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2" for="lead-service">Qual serviço deseja? *</label>
+                            <select id="lead-service" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-cyan focus:ring-2 focus:ring-brand-cyan/20 outline-none text-sm transition-all bg-white">
+                                <option value="" disabled selected>Selecione uma opção...</option>
+                                <option value="Exame de Vista Computadorizado">Exame de Vista Computadorizado</option>
+                                <option value="Orçamento de Óculos Completo (Armação + Lente)">Orçamento de Óculos Completo (Armação + Lente)</option>
+                                <option value="Consultoria de Estilo para Rosto">Consultoria de Estilo / Visagismo</option>
+                                <option value="Adaptação de Lentes de Contato">Adaptação de Lentes de Contato</option>
+                                <option value="Ajuste e Manutenção de Armação">Ajuste e Manutenção de Armação</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2" for="lead-notes">Observações ou Grau (Opcional)</label>
+                            <textarea id="lead-notes" rows="3" placeholder="Tenho miopia / Prefiro armação de metal..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-cyan focus:ring-2 focus:ring-brand-cyan/20 outline-none text-sm transition-all resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3 text-base">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span>Enviar Agendamento para WhatsApp</span>
+                        </button>
+                        <p class="text-[11px] text-center text-slate-400">Seus dados são protegidos. Não enviamos spam.</p>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SESSÃO DE DEPOIMENTOS DE CLIENTES -->
+    <section class="py-16 bg-slate-50 border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-navy">O que nossos clientes dizem</h2>
+                <p class="text-slate-600 text-xs sm:text-sm mt-1">Transparência e carinho em cada atendimento visual.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-card border border-slate-100 space-y-4">
+                    <div class="flex text-amber-400 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-slate-600 text-xs leading-relaxed">"Melhor atendimento da cidade! Fiz meu exame e escolhi a armação com a consultoria deles. Ficou perfeito no meu rosto!"</p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <div class="w-9 h-9 rounded-full bg-brand-cyan/20 text-brand-navy font-bold flex items-center justify-center text-xs">CS</div>
+                        <div>
+                            <p class="text-xs font-bold text-brand-navy">Carla Souza</p>
+                            <p class="text-[10px] text-slate-400">Cliente há 2 anos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-card border border-slate-100 space-y-4">
+                    <div class="flex text-amber-400 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-slate-600 text-xs leading-relaxed">"Comprei lentes multifocais com filtro azul. A adaptação foi super rápida e as armações têm uma qualidade surreal."</p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <div class="w-9 h-9 rounded-full bg-brand-cyan/20 text-brand-navy font-bold flex items-center justify-center text-xs">MA</div>
+                        <div>
+                            <p class="text-xs font-bold text-brand-navy">Marcos Andrade</p>
+                            <p class="text-[10px] text-slate-400">Comptador Frequente</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-card border border-slate-100 space-y-4">
+                    <div class="flex text-amber-400 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-slate-600 text-xs leading-relaxed">"Adorei a facilidade de pedir pelo WhatsApp e retirar na loja. Preço justo e equipe hiper atenciosa."</p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <div class="w-9 h-9 rounded-full bg-brand-cyan/20 text-brand-navy font-bold flex items-center justify-center text-xs">JL</div>
+                        <div>
+                            <p class="text-xs font-bold text-brand-navy">Juliana Lima</p>
+                            <p class="text-[10px] text-slate-400">Cliente Verificada</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SESSÃO DE LOCALIZAÇÃO NO GOOGLE MAPS -->
+    <section id="localizacao" class="py-16 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-brand-cyan font-bold text-sm tracking-widest uppercase">Venha nos Visitar</span>
+                <h2 class="text-3xl font-extrabold text-brand-navy mt-1">Nossa Loja Física</h2>
+                <p class="text-slate-600 text-sm mt-2">Ambiente moderno, climatizado e com estacionamento exclusivo.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                
+                <!-- Informações de Contato & Horários -->
+                <div class="lg:col-span-5 bg-slate-50 p-8 rounded-3xl border border-slate-200 flex flex-col justify-between space-y-6">
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-cyan/10 text-brand-cyan flex items-center justify-center text-lg shrink-0 mt-1">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-navy text-sm">Endereço</h4>
+                                <p class="text-slate-600 text-xs leading-relaxed">Av. Principal do Centro, nº 1000 - Centro<br>Maceió - AL, CEP 57000-000</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-cyan/10 text-brand-cyan flex items-center justify-center text-lg shrink-0 mt-1">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-navy text-sm">Horário de Funcionamento</h4>
+                                <p class="text-slate-600 text-xs">Segunda a Sexta: 08:00h às 18:00h</p>
+                                <p class="text-slate-600 text-xs">Sábado: 08:00h às 13:00h</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-cyan/10 text-brand-cyan flex items-center justify-center text-lg shrink-0 mt-1">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-navy text-sm">Telefones & WhatsApp</h4>
+                                <p class="text-slate-600 text-xs">(82) 3333-0000 / (82) 99640-2650</p>
+                                <p class="text-slate-600 text-xs">contato@oticanovavisao.com.br</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://maps.google.com" target="_blank" class="w-full bg-brand-navy hover:bg-brand-navy-light text-white py-3.5 rounded-xl font-bold text-xs text-center flex items-center justify-center gap-2 transition-colors">
+                        <i class="fa-solid fa-diamond-turn-right text-brand-cyan"></i>
+                        <span>Como Chegar pelo GPS</span>
+                    </a>
+                </div>
+
+                <!-- Iframe do Google Maps Embutido -->
+                <div class="lg:col-span-7 rounded-3xl overflow-hidden shadow-md border border-slate-200 min-h-[350px]">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3933.15372813583!2d-35.7351!3d-9.6658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMzknNTYuOSJTIDM1wrA0NCcwNi40Ilc!5e0!3m2!1spt-BR!2sbr!4v1680000000000!5m2!1spt-BR!2sbr" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0; min-height: 380px;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER COM LOGO E CONTATOS -->
+    <footer class="bg-brand-navy text-white pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
+                
+                <!-- Coluna 1: Logo & Sobre -->
+                <div class="lg:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-8">
+                            <svg viewBox="0 0 120 70" class="w-full h-full">
+                                <path d="M10,35 Q60,-15 110,35 Q60,85 10,35 Z" fill="none" stroke="#00A8CC" stroke-width="8"/>
+                                <path d="M25,35 Q60,0 95,35 Q60,70 25,35 Z" fill="none" stroke="#FFFFFF" stroke-width="9"/>
+                                <circle cx="60" cy="35" r="14" fill="#FFFFFF"/>
+                                <circle cx="55" cy="30" r="4.5" fill="#0A2540"/>
+                            </svg>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-[10px] tracking-widest text-brand-cyan font-bold uppercase">ÓTICA</span>
+                            <span class="text-lg font-black text-white tracking-tight">NOVA VISÃO</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
+                        Sua saúde visual é nossa prioridade. Oferecemos o que há de melhor em tecnologia de lentes, armações de grife e atendimento humanizado.
+                    </p>
+                    <div class="flex space-x-3 pt-2">
+                        <a href="#" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-brand-cyan hover:text-slate-900 flex items-center justify-center text-slate-300 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-brand-cyan hover:text-slate-900 flex items-center justify-center text-slate-300 transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-brand-cyan hover:text-slate-900 flex items-center justify-center text-slate-300 transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Coluna 2: Navegação -->
+                <div class="space-y-3">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-brand-cyan">Navegação</h4>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li><a href="#hero" class="hover:text-brand-cyan transition-colors">Início</a></li>
+                        <li><a href="#produtos" class="hover:text-brand-cyan transition-colors">Armações de Grau</a></li>
+                        <li><a href="#produtos" class="hover:text-brand-cyan transition-colors">Óculos de Sol</a></li>
+                        <li><a href="#produtos" class="hover:text-brand-cyan transition-colors">Lentes de Contato</a></li>
+                        <li><a href="#servicos" class="hover:text-brand-cyan transition-colors">Nossos Serviços</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Serviços -->
+                <div class="space-y-3">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-brand-cyan">Especialidades</h4>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li>Exame Computadorizado</li>
+                        <li>Consultoria Visagista</li>
+                        <li>Lentes Digital Blue-Filter</li>
+                        <li>Ajustes e Reparos Grátis</li>
+                        <li>Adaptação de Lentes</li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 4: Atendimento -->
+                <div class="space-y-3">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-brand-cyan">Fale Conosco</h4>
+                    <p class="text-xs text-slate-300">WhatsApp: (82) 99640-2650</p>
+                    <p class="text-xs text-slate-300">Telefone: (82) 3333-0000</p>
+                    <p class="text-xs text-slate-300">Centro - Maceió/AL</p>
+                    <div class="pt-2">
+                        <span class="inline-block bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-bold px-2.5 py-1 rounded-full">
+                            ● Loja Aberta Hoje
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Direitos Autorais -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <p>&copy; 2026 Ótica Nova Visão. Todos os direitos reservados. "Sua saúde, nossa prioridade."</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:underline">Políticas de Privacidade</a>
+                    <a href="#" class="hover:underline">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- DRAWER FLUTUANTE DO CARRINHO DE COMPRAS -->
+    <div id="cart-drawer-overlay" onclick="toggleCartDrawer()" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    
+    <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+        
+        <!-- Header Carrinho -->
+        <div class="p-5 bg-brand-navy text-white flex items-center justify-between border-b border-slate-800">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-bag-shopping text-brand-cyan"></i>
+                <h3 class="font-bold text-base">Seu Carrinho de Pedidos</h3>
+            </div>
+            <button onclick="toggleCartDrawer()" class="text-slate-400 hover:text-white p-1 rounded-lg">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Lista de Itens do Carrinho -->
+        <div id="cart-items-container" class="flex-1 overflow-y-auto p-5 space-y-4">
+            <!-- Injetado via JavaScript -->
+        </div>
+
+        <!-- Subtotal e Botão WhatsApp Checkout -->
+        <div class="p-5 border-t border-slate-100 bg-slate-50 space-y-4">
+            <div class="flex justify-between items-center text-sm font-bold text-slate-800">
+                <span>Total Estimado:</span>
+                <span id="cart-total-price" class="text-xl text-brand-navy">R$ 0,00</span>
+            </div>
+            <p class="text-[11px] text-slate-500">O valor final pode variar dependendo do tipo de lente e grau escolhidos.</p>
+            <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold py-3.5 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 text-sm">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>Enviar Pedido via WhatsApp</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- NOTIFICAÇÃO TOAST AO ADICIONAR ITEM -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-brand-navy text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-brand-cyan/30 flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300">
+        <i class="fa-solid fa-circle-check text-brand-cyan text-lg"></i>
+        <span id="toast-message" class="text-xs font-semibold">Produto adicionado ao carrinho!</span>
+    </div>
+
+    <!-- JAVASCRIPT DE INTERATIVIDADE -->
+    <script>
+        // BASE DE DADOS DOS PRODUTOS DA ÓTICA NOVA VISÃO
+        const productsDatabase = [
+            {
+                id: 1,
+                name: "Armação Titânio Nova Visão Flex",
+                category: "armacoes",
+                price: 289.00,
+                badge: "Mais Vendido",
+                rating: 5,
+                image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?auto=format&fit=crop&w=500&q=80",
+                description: "Ultra leve, resistente e anatômica para uso diário."
+            },
+            {
+                id: 2,
+                name: "Óculos de Sol Hexagonal Gold UV400",
+                category: "sol",
+                price: 349.00,
+                badge: "Oferta",
+                rating: 5,
+                image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=500&q=80",
+                description: "Lentes polarizadas com proteção total contra raios solares."
+            },
+            {
+                id: 3,
+                name: "Armação Acetato Premium Transparente",
+                category: "armacoes",
+                price: 229.00,
+                badge: "Tendência",
+                rating: 4,
+                image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=500&q=80",
+                description: "Estilo visagista moderno e confortável."
+            },
+            {
+                id: 4,
+                name: "Lentes de Contato Acuvue Oasys (Caixa)",
+                category: "lentes",
+                price: 189.90,
+                badge: "Saúde Visual",
+                rating: 5,
+                image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=500&q=80",
+                description: "Hidratação contínua e alto fluxo de oxigênio."
+            },
+            {
+                id: 5,
+                name: "Óculos Solar Black Aviador Classic",
+                category: "sol",
+                price: 299.00,
+                badge: "Clássico",
+                rating: 5,
+                image: "https://images.unsplash.com/photo-1508296695146-257a814070b4?auto=format&fit=crop&w=500&q=80",
+                description: "Design atemporal de alta durabilidade."
+            },
+            {
+                id: 6,
+                name: "Armação Round Metal Nude Vintage",
+                category: "armacoes",
+                price: 259.00,
+                badge: "Lançamento",
+                rating: 5,
+                image: "https://images.unsplash.com/photo-1516715094483-75da7dee9758?auto=format&fit=crop&w=500&q=80",
+                description: "Combina perfeitamente com rostos ovais e quadrados."
+            },
+            {
+                id: 7,
+                name: "Kit Solução de Limpeza + Estojo Lentes",
+                category: "lentes",
+                price: 59.90,
+                badge: "Acessórios",
+                rating: 5,
+                image: "https://images.unsplash.com/photo-1628102491629-778571d893a3?auto=format&fit=crop&w=500&q=80",
+                description: "Higienização completa e segura para suas lentes."
+            },
+            {
+                id: 8,
+                name: "Óculos Solar Cat-Eye Glamour",
+                category: "sol",
+                price: 319.00,
+                badge: "Destaque",
+                rating: 4,
+                image: "https://images.unsplash.com/photo-1509695507497-903c140c43b0?auto=format&fit=crop&w=500&q=80",
+                description: "Elegância e proteção para momentos ao ar livre."
+            }
+        ];
+
+        // ESTADO DO CARRINHO
+        let cart = [];
+
+        // INICIALIZAÇÃO
+        document.addEventListener("DOMContentLoaded", () => {
+            renderProducts(productsDatabase);
+            updateCartUI();
+        });
+
+        // RENDERIZAR PRODUTOS NO GRID
+        function renderProducts(products) {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+
+            products.forEach(p => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-card hover:shadow-xl transition-all duration-300 flex flex-col justify-between group";
+                
+                card.innerHTML = `
+                    <div class="relative overflow-hidden bg-slate-100 h-52">
+                        <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-brand-navy text-white text-[10px] font-bold px-2.5 py-1 rounded-full tracking-wider shadow-sm">${p.badge}</span>
+                    </div>
+
+                    <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+                        <div>
+                            <div class="flex text-amber-400 text-xs mb-1">
+                                ${'<i class="fa-solid fa-star"></i>'.repeat(p.rating)}
+                            </div>
+                            <h3 class="font-bold text-brand-navy text-base group-hover:text-brand-cyan transition-colors line-clamp-1">${p.name}</h3>
+                            <p class="text-slate-500 text-xs leading-snug line-clamp-2 mt-1">${p.description}</p>
+                        </div>
+
+                        <div class="pt-2 border-t border-slate-100 flex items-center justify-between">
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-medium">A partir de</span>
+                                <span class="text-lg font-black text-brand-navy">R$ ${p.price.toFixed(2).replace('.', ',')}</span>
+                            </div>
+                            <button onclick="addToCart(${p.id})" class="bg-brand-cyan hover:bg-brand-cyan-dark text-slate-900 font-bold p-3 rounded-xl shadow-md transition-all flex items-center justify-center text-sm" title="Adicionar ao Carrinho">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // FILTRAR POR CATEGORIA
+        function filterCategory(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                if(btn.dataset.category === category) {
+                    btn.className = "filter-btn active px-5 py-2.5 rounded-full text-xs font-bold transition-all bg-brand-navy text-white shadow-md";
+                } else {
+                    btn.className = "filter-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all bg-white text-slate-700 hover:bg-slate-100";
+                }
+            });
+
+            if (category === 'all') {
+                renderProducts(productsDatabase);
+            } else {
+                const filtered = productsDatabase.filter(p => p.category === category);
+                renderProducts(filtered);
+            }
+        }
+
+        // GERENCIAMENTO DO CARRINHO
+        function addToCart(productId) {
+            const product = productsDatabase.find(p => p.id === productId);
+            const existing = cart.find(item => item.id === productId);
+
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            updateCartUI();
+            showToast(`"${product.name}" adicionado ao carrinho!`);
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartUI();
+        }
+
+        function updateQuantity(productId, delta) {
+            const item = cart.find(i => i.id === productId);
+            if (item) {
+                item.quantity += delta;
+                if (item.quantity <= 0) {
+                    removeFromCart(productId);
+                } else {
+                    updateCartUI();
+                }
+            }
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cart-items-container');
+            const badge = document.getElementById('cart-badge');
+            const totalElement = document.getElementById('cart-total-price');
+
+            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            // Atualiza Badge do Header
+            badge.innerText = totalCount;
+            if (totalCount > 0) {
+                badge.classList.remove('scale-0');
+                badge.classList.add('scale-100');
+            } else {
+                badge.classList.remove('scale-100');
+                badge.classList.add('scale-0');
+            }
+
+            // Atualiza Preço Total
+            totalElement.innerText = `R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
+
+            // Renderiza Lista do Carrinho
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 text-slate-400 space-y-3">
+                        <i class="fa-solid fa-basket-shopping text-4xl text-slate-300"></i>
+                        <p class="text-xs font-semibold">Seu carrinho está vazio.</p>
+                        <a href="#produtos" onclick="toggleCartDrawer()" class="inline-block text-xs text-brand-cyan font-bold underline">Explorar catálogo</a>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = '';
+            cart.forEach(item => {
+                const row = document.createElement('div');
+                row.className = "flex items-center gap-3 bg-slate-50 p-3 rounded-xl border border-slate-200/80";
+                row.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="w-14 h-14 object-cover rounded-lg border border-slate-200">
+                    <div class="flex-1 min-w-0">
+                        <h4 class="text-xs font-bold text-brand-navy truncate">${item.name}</h4>
+                        <p class="text-xs font-semibold text-brand-cyan">R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</p>
+                        <div class="flex items-center gap-2 mt-1">
+                            <button onclick="updateQuantity(${item.id}, -1)" class="w-5 h-5 bg-white border rounded text-xs flex items-center justify-center font-bold text-slate-600 hover:bg-slate-100">-</button>
+                            <span class="text-xs font-bold">${item.quantity}</span>
+                            <button onclick="updateQuantity(${item.id}, 1)" class="w-5 h-5 bg-white border rounded text-xs flex items-center justify-center font-bold text-slate-600 hover:bg-slate-100">+</button>
+                        </div>
+                    </div>
+                    <button onclick="removeFromCart(${item.id})" class="text-slate-400 hover:text-red-500 p-1.5 text-xs">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                `;
+                container.appendChild(row);
+            });
+        }
+
+        // ABRIR/FECHAR DRAWER DO CARRINHO
+        function toggleCartDrawer() {
+            const drawer = document.getElementById('cart-drawer');
+            const overlay = document.getElementById('cart-drawer-overlay');
+
+            const isOpen = !drawer.classList.contains('translate-x-full');
+
+            if (isOpen) {
+                drawer.classList.add('translate-x-full');
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+            } else {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+            }
+        }
+
+        // MENU MOBILE
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // MOSTRAR TOAST
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const msg = document.getElementById('toast-message');
+            msg.innerText = message;
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // CHECKOUT DE PEDIDOS VIA WHATSAPP
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                showToast("Seu carrinho está vazio!");
+                return;
+            }
+
+            const phoneNumber = "5582996402650"; // Número de WhatsApp atualizado
+            let message = "👓 *NOVO PEDIDO - ÓTICA NOVA VISÃO*\n\n";
+            message += "Olá! Gostaria de finalizar meu pedido com os seguintes itens:\n\n";
+
+            let total = 0;
+            cart.forEach((item, index) => {
+                const subtotal = item.price * item.quantity;
+                total += subtotal;
+                message += `${index + 1}. *${item.name}*\n   Qtd: ${item.quantity}x | Val: R$ ${subtotal.toFixed(2).replace('.', ',')}\n`;
+            });
+
+            message += `\n*Total Estimado:* R$ ${total.toFixed(2).replace('.', ',')}\n`;
+            message += "\n*Por favor, me informe o prazo de entrega e opções de lente com grau.*";
+
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+        }
+
+        // ENVIO DO FORMULÁRIO DE LEAD VIA WHATSAPP
+        function handleLeadSubmit(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('lead-name').value.trim();
+            const phone = document.getElementById('lead-phone').value.trim();
+            const service = document.getElementById('lead-service').value;
+            const notes = document.getElementById('lead-notes').value.trim();
+
+            const phoneNumber = "5582996402650";
+            
+            let message = "📅 *SOLICITAÇÃO DE ATENDIMENTO / AGENDAMENTO*\n\n";
+            message += `*Nome:* ${name}\n`;
+            message += `*Telefone:* ${phone}\n`;
+            message += `*Serviço Desejado:* ${service}\n`;
+            if (notes) {
+                message += `*Observações/Grau:* ${notes}\n`;
+            }
+            message += "\nOlá, vim pelo site e gostaria de agendar meu atendimento na Ótica Nova Visão!";
+
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+
+            // Limpa o formulário
+            document.getElementById('lead-form').reset();
+        }
+    </script>
+</body>
+</html>
