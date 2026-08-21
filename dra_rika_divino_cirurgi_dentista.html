@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. Érika Divino | Cirurgiã-Dentista | CRO/AL 6110</title>
+    
+    <!-- Google Fonts for delicate and premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            wine: '#541523',
+                            wineDark: '#380a14',
+                            wineLight: '#782337',
+                            burgundy: '#661b2e',
+                            roseBg: '#fcf8f6',
+                            roseCard: '#f7eeea',
+                            accentGold: '#d4af37',
+                            softNude: '#ede2dc',
+                            darkText: '#2a1a1d',
+                            muted: '#6e5a5e'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'Cormorant Garamond', 'Georgia', 'serif'],
+                        script: ['"Alex Brush"', 'cursive'],
+                        sans: ['Montserrat', 'sans-serif'],
+                        cormorant: ['"Cormorant Garamond"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .font-script-delicate {
+            font-family: 'Alex Brush', cursive;
+        }
+        .bg-pattern {
+            background-color: #fcf8f6;
+            background-image: radial-gradient(#d4af37 0.5px, transparent 0.5px), radial-gradient(#541523 0.5px, #fcf8f6 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            background-opacity: 0.03;
+        }
+        .shadow-soft {
+            box-shadow: 0 10px 30px -5px rgba(84, 21, 35, 0.08);
+        }
+        .shadow-glow {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+        }
+        .text-gradient-wine {
+            background: linear-gradient(135deg, #541523 0%, #8f2b40 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa820a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .polaroid-frame {
+            box-shadow: 0 15px 35px rgba(56, 10, 20, 0.12);
+            transition: all 0.4s ease;
+        }
+        .polaroid-frame:hover {
+            transform: translateY(-6px) rotate(1deg);
+            box-shadow: 0 20px 40px rgba(56, 10, 20, 0.18);
+        }
+        
+        /* Smooth custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fcf8f6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #782337;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #541523;
+        }
+    </style>
+</head>
+<body class="bg-brand-roseBg text-brand-darkText font-sans antialiased selection:bg-brand-wine selection:text-white overflow-x-hidden">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-brand-wineDark text-white/90 text-xs py-2 px-4 text-center border-b border-brand-accentGold/20 font-light tracking-widest uppercase">
+        <i class="fa-solid fa-sparkles text-brand-accentGold mr-1"></i> 
+        Atendimento Humanizado & Especializado | Agendamento de Consultas Aberto
+        <span class="hidden md:inline font-semibold text-brand-accentGold ml-2">| CRO/AL 6110</span>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-softNude shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Profile / Branding Field in Navbar (Requirement 2) -->
+                <a href="#inicio" class="flex items-center gap-3 group">
+                    <div class="relative">
+                        <!-- Profile Image Container -->
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-brand-wine p-0.5 bg-brand-roseCard shadow-md group-hover:border-brand-accentGold transition-colors">
+                            <img src="image_68ea69.png" 
+                                 alt="Dra. Érika Divino" 
+                                 class="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-300"
+                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1594824813570-78a333e1033d?auto=format&fit=crop&q=80&w=300';">
+                        </div>
+                        <span class="absolute -top-1 -right-1 text-xs bg-brand-wine text-brand-accentGold rounded-full w-5 h-5 flex items-center justify-center border border-white shadow-sm">✨</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif font-bold text-base sm:text-lg text-brand-wine tracking-tight group-hover:text-brand-wineLight transition-colors">
+                            Dra. Érika Divino
+                        </span>
+                        <div class="flex items-center gap-1.5 text-xs text-brand-muted font-medium">
+                            <span class="hidden sm:inline">Cirurgiã-Dentista</span>
+                            <span class="hidden sm:inline text-brand-accentGold">•</span>
+                            <span class="bg-brand-wine/10 text-brand-wine px-1.5 py-0.5 rounded text-[10px] font-semibold tracking-wider">CRO/AL 6110</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Menu (Requirement 3) -->
+                <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#inicio" class="text-brand-darkText hover:text-brand-wine transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-wine hover:after:w-full after:transition-all">Início</a>
+                    <a href="#sobre" class="text-brand-darkText hover:text-brand-wine transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-wine hover:after:w-full after:transition-all">Sobre Mim</a>
+                    <a href="#servicos" class="text-brand-darkText hover:text-brand-wine transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-wine hover:after:w-full after:transition-all">Serviços</a>
+                    <a href="#contatos" class="text-brand-darkText hover:text-brand-wine transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-wine hover:after:w-full after:transition-all">Contatos</a>
+                </nav>
+
+                <!-- Action CTA Button in Menu -->
+                <div class="hidden lg:flex items-center">
+                    <a href="#agende" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider text-white bg-brand-wine hover:bg-brand-wineLight transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 border border-brand-accentGold/30 uppercase">
+                        <i class="fa-solid fa-calendar-check mr-2 text-brand-accentGold"></i>
+                        Agende sua Consulta
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex lg:hidden items-center">
+                    <button id="mobile-menu-btn" type="button" class="p-2 rounded-lg text-brand-wine hover:bg-brand-roseCard focus:outline-none" aria-label="Abrir Menu">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-brand-softNude px-4 pt-3 pb-6 space-y-3 shadow-xl">
+            <a href="#inicio" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-brand-darkText hover:bg-brand-roseCard hover:text-brand-wine">Início</a>
+            <a href="#sobre" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-brand-darkText hover:bg-brand-roseCard hover:text-brand-wine">Sobre Mim</a>
+            <a href="#servicos" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-brand-darkText hover:bg-brand-roseCard hover:text-brand-wine">Serviços</a>
+            <a href="#contatos" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-brand-darkText hover:bg-brand-roseCard hover:text-brand-wine">Contatos</a>
+            <div class="pt-2">
+                <a href="#agende" class="mobile-link flex items-center justify-center w-full px-4 py-3 rounded-xl text-sm font-semibold text-white bg-brand-wine hover:bg-brand-wineLight text-center shadow">
+                    <i class="fa-brands fa-whatsapp mr-2 text-emerald-400 text-lg"></i> Agende sua Consulta
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO BANNER SECTION (Requirement 5 & Color Palette Requirement 4) -->
+    <section id="inicio" class="relative overflow-hidden bg-gradient-to-b from-brand-roseBg via-white to-brand-roseBg py-16 lg:py-24">
+        <!-- Background Ambient Shapes -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-brand-wine/5 blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 -left-24 w-80 h-80 rounded-full bg-brand-accentGold/10 blur-2xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column: Copy & Taglines -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-roseCard border border-brand-wine/10 text-brand-wine text-xs font-semibold tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-brand-wine animate-pulse"></span>
+                        ODONTOLOGIA DE EXCELÊNCIA & ACOLHIMENTO
+                    </div>
+
+                    <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-wine">
+                        Prazer, <br class="hidden sm:inline">
+                        <span class="text-brand-wine font-serif relative italic font-normal text-gradient-wine">
+                            Dra. Érika Divino
+                        </span>
+                    </h1>
+
+                    <p class="font-cormorant text-xl sm:text-2xl text-brand-wine/90 italic font-medium tracking-wide border-l-2 lg:border-l-4 border-brand-accentGold pl-3 lg:pl-4 inline-block">
+                        Cirurgiã-Dentista | CRO/AL 6110
+                    </p>
+
+                    <p class="text-base sm:text-lg text-brand-muted max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        Transformando sorrisos com precisão técnica, cuidado hospitalar humanizado e estética natural. Uma experiência odonto-acolhedora pensada exclusivamente para você.
+                    </p>
+
+                    <!-- Features Pill Group -->
+                    <div class="pt-2 flex flex-wrap justify-center lg:justify-start gap-3 text-xs sm:text-sm text-brand-darkText">
+                        <span class="inline-flex items-center px-3 py-1.5 rounded-lg bg-white border border-brand-softNude shadow-xs font-medium">
+                            <i class="fa-solid fa-tooth text-brand-wine mr-2"></i> Dentística Restauradora
+                        </span>
+                        <span class="inline-flex items-center px-3 py-1.5 rounded-lg bg-white border border-brand-softNude shadow-xs font-medium">
+                            <i class="fa-solid fa-hospital-user text-brand-wine mr-2"></i> Odontologia Hospitalar
+                        </span>
+                        <span class="inline-flex items-center px-3 py-1.5 rounded-lg bg-white border border-brand-softNude shadow-xs font-medium">
+                            <i class="fa-solid fa-hand-holding-heart text-brand-wine mr-2"></i> Cirurgia Oral Menor
+                        </span>
+                    </div>
+
+                    <!-- Call To Action Buttons -->
+                    <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#agende" class="inline-flex items-center justify-center px-8 py-4 rounded-xl text-sm font-semibold tracking-wide text-white bg-brand-wine hover:bg-brand-wineDark transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 border border-brand-accentGold/40 group">
+                            <i class="fa-brands fa-whatsapp text-emerald-400 text-xl mr-2.5 group-hover:scale-110 transition-transform"></i>
+                            Agendar Consulta no WhatsApp
+                        </a>
+                        <a href="#sobre" class="inline-flex items-center justify-center px-7 py-4 rounded-xl text-sm font-semibold tracking-wide text-brand-wine bg-brand-roseCard hover:bg-brand-softNude transition-all border border-brand-wine/10">
+                            Conhecer Minha Trajetória
+                            <i class="fa-solid fa-arrow-down-long ml-2 text-xs"></i>
+                        </a>
+                    </div>
+
+                    <!-- Stats Counter Badge -->
+                    <div class="pt-6 grid grid-cols-3 gap-4 border-t border-brand-softNude max-w-lg mx-auto lg:mx-0">
+                        <div class="text-center lg:text-left">
+                            <div class="font-serif font-bold text-2xl text-brand-wine">100%</div>
+                            <div class="text-xs text-brand-muted">Cuidado Personalizado</div>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <div class="font-serif font-bold text-2xl text-brand-wine">CRO/AL</div>
+                            <div class="text-xs text-brand-muted">Registro 6110</div>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <div class="font-serif font-bold text-2xl text-brand-wine">ESF & Atendimento</div>
+                            <div class="text-xs text-brand-muted">SUS & Particular</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Hero Visual Graphic Banner (Inspired by Image Reference) -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        
+                        <!-- Decorative Frame Overlay -->
+                        <div class="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-brand-wine via-brand-wineLight to-brand-accentGold opacity-30 blur-lg"></div>
+                        
+                        <!-- Main Card -->
+                        <div class="relative bg-brand-wineDark text-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-brand-accentGold/30 overflow-hidden text-center">
+                            
+                            <!-- Gold Sparkle Details -->
+                            <div class="absolute top-4 right-4 text-brand-accentGold text-xl opacity-80">
+                                <i class="fa-solid fa-sparkles"></i>
+                            </div>
+
+                            <!-- Header Tag -->
+                            <span class="inline-block text-[11px] uppercase tracking-widest text-brand-accentGold font-semibold border-b border-brand-accentGold/30 pb-1 mb-6">
+                                CHEGOU AGORA?
+                            </span>
+
+                            <!-- Portrait Container -->
+                            <div class="relative w-48 h-48 sm:w-56 sm:h-56 mx-auto mb-6 rounded-2xl overflow-hidden border-2 border-brand-accentGold/60 shadow-xl bg-brand-wine">
+                                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=600" 
+                                     alt="Dra. Érika Divino Cirurgiã Dentista" 
+                                     class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                                     onerror="this.onerror=null; this.src='https://placehold.co/400x400/541523/ffffff?text=Dra.+Erika+Divino';">
+                                <div class="absolute inset-0 bg-gradient-to-t from-brand-wineDark via-transparent to-transparent opacity-60"></div>
+                            </div>
+
+                            <p class="font-script-delicate text-3xl sm:text-4xl text-brand-accentGold mb-1">
+                                Prazer,
+                            </p>
+                            <h2 class="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-white mb-2">
+                                Dra. Érika Divino
+                            </h2>
+                            <p class="text-xs tracking-widest uppercase text-white/80 font-light mb-4">
+                                CRO/AL 6110 • CIRURGIÃ-DENTISTA
+                            </p>
+
+                            <!-- Mini Badge List inside Graphic -->
+                            <div class="bg-white/10 backdrop-blur-md rounded-xl p-3 text-xs text-rose-100 flex justify-around items-center border border-white/10">
+                                <span><i class="fa-solid fa-check text-brand-accentGold mr-1"></i> Humanizada</span>
+                                <span><i class="fa-solid fa-check text-brand-accentGold mr-1"></i> Especialista</span>
+                                <span><i class="fa-solid fa-check text-brand-accentGold mr-1"></i> Dedicada</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE MIM SECTION (Requirement 6 - Based directly on image_68e5b2.jpg) -->
+    <section id="sobre" class="py-20 bg-pattern relative border-y border-brand-softNude">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column: Photo Collage Frame (Mirroring the Polaroid Style in image_68e5b2.jpg) -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="relative max-w-sm mx-auto lg:max-w-none">
+                        
+                        <!-- Top Polaroid Card (Graduation / Certificate) -->
+                        <div class="bg-white p-3 rounded-2xl polaroid-frame transform -rotate-2 border border-brand-softNude mb-4">
+                            <div class="aspect-[4/3] rounded-xl overflow-hidden bg-brand-roseCard relative">
+                                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=600" 
+                                     alt="Formatura Dra. Érika Divino" 
+                                     class="w-full h-full object-cover"
+                                     onerror="this.onerror=null; this.src='https://placehold.co/500x375/541523/ffffff?text=Formatura+CRO%2FAL+6110';">
+                                <div class="absolute bottom-2 left-2 bg-black/60 text-white text-[10px] px-2 py-0.5 rounded backdrop-blur-sm">
+                                    Conquistas & Formação
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Polaroid Card (Clinic Practice) -->
+                        <div class="bg-white p-3 rounded-2xl polaroid-frame transform rotate-2 border border-brand-softNude -mt-8 ml-6 sm:ml-12 shadow-xl">
+                            <div class="aspect-[4/3] rounded-xl overflow-hidden bg-brand-roseCard relative">
+                                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=600" 
+                                     alt="Atendimento Odontológico Dra. Érika Divino" 
+                                     class="w-full h-full object-cover"
+                                     onerror="this.onerror=null; this.src='https://placehold.co/500x375/661b2e/ffffff?text=Atendimento+Clinico';">
+                                <div class="absolute bottom-2 left-2 bg-brand-wine/80 text-white text-[10px] px-2 py-0.5 rounded backdrop-blur-sm">
+                                    Prática Clínica & Cuidado
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Instagram handle badge (From image requirement) -->
+                        <div class="text-center mt-6">
+                            <a href="https://instagram.com/erikadivino" target="_blank" rel="noopener noreferrer" 
+                               class="inline-flex items-center gap-2 text-xs font-semibold text-brand-wine hover:text-brand-accentGold transition-colors tracking-widest uppercase bg-white px-4 py-2 rounded-full border border-brand-softNude shadow-xs">
+                                <i class="fa-brands fa-instagram text-brand-wine text-base"></i>
+                                @ERIKADIVINO
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Text Content Exactly Following Provided Image -->
+                <div class="lg:col-span-7 space-y-6">
+                    
+                    <!-- Script Title for delicate aesthetic (Requirement 9) -->
+                    <div class="space-y-1">
+                        <span class="font-script-delicate text-5xl sm:text-6xl text-brand-wine block leading-none">
+                            sobre mim
+                        </span>
+                        <div class="w-16 h-0.5 bg-brand-accentGold"></div>
+                    </div>
+
+                    <!-- Bullet points verbatim from image_68e5b2.jpg -->
+                    <ul class="space-y-5 text-brand-darkText text-base sm:text-lg font-light leading-relaxed">
+                        
+                        <li class="flex items-start gap-3 bg-white p-4 rounded-xl border border-brand-softNude shadow-xs hover:border-brand-wine/30 transition-colors">
+                            <span class="text-brand-wine font-bold text-xl mt-0.5">•</span>
+                            <div>
+                                <span class="font-normal text-brand-wine">Sou Cirurgiã-Dentista</span> 
+                                <span class="bg-brand-roseCard text-brand-wine font-semibold px-2 py-0.5 rounded text-sm ml-1">CRO/AL 6110</span>;
+                            </div>
+                        </li>
+
+                        <li class="flex items-start gap-3 bg-white p-4 rounded-xl border border-brand-softNude shadow-xs hover:border-brand-wine/30 transition-colors">
+                            <span class="text-brand-wine font-bold text-xl mt-0.5">•</span>
+                            <div>
+                                <span class="font-normal text-brand-wine">Especialista em</span> 
+                                <strong class="font-bold text-brand-wine">Odontologia Hospitalar</strong> e 
+                                <strong class="font-bold text-brand-wine">Dentística restauradora</strong>;
+                            </div>
+                        </li>
+
+                        <li class="flex items-start gap-3 bg-white p-4 rounded-xl border border-brand-softNude shadow-xs hover:border-brand-wine/30 transition-colors">
+                            <span class="text-brand-wine font-bold text-xl mt-0.5">•</span>
+                            <div>
+                                Atualmente trabalhando no <strong class="font-bold text-brand-wine">PSF (Programa Saúde da Família)</strong>, hoje chamado oficialmente de <strong class="font-bold text-brand-wine">Estratégia Saúde da Família (ESF)</strong>, é o serviço básico de saúde do SUS no Brasil. <span class="text-brand-wine font-medium">Atendo particular também</span>;
+                            </div>
+                        </li>
+
+                        <li class="flex items-start gap-3 bg-white p-4 rounded-xl border border-brand-softNude shadow-xs hover:border-brand-wine/30 transition-colors">
+                            <span class="text-brand-wine font-bold text-xl mt-0.5">•</span>
+                            <div>
+                                Pratico <span class="font-medium text-brand-wine">musculação</span> e <span class="font-medium text-brand-wine">corrida</span>.
+                            </div>
+                        </li>
+
+                    </ul>
+
+                    <!-- Soft Quote Card -->
+                    <div class="p-5 rounded-2xl bg-gradient-to-r from-brand-wine to-brand-wineDark text-white mt-6 shadow-md relative overflow-hidden">
+                        <i class="fa-solid fa-quote-right absolute -right-3 -bottom-3 text-white/10 text-7xl"></i>
+                        <p class="font-serif italic text-sm sm:text-base leading-relaxed text-rose-100">
+                            "Acredito que o cuidado odontológico vai muito além de tratar dentes; é sobre escuta atenta, conforto, segurança hospitalar e devolver a confiança através do seu melhor sorriso."
+                        </p>
+                        <span class="block mt-2 text-xs text-brand-accentGold font-semibold uppercase tracking-wider">— Dra. Érika Divino</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SERVIÇOS PRINCIPAIS SECTION (Requirement 6.b) -->
+    <section id="servicos" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-xs uppercase tracking-widest text-brand-wine font-bold bg-brand-roseCard px-3 py-1 rounded-full border border-brand-wine/10">
+                    Cuidado Especializado
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-wine">
+                    Principais Serviços Odontológicos
+                </h2>
+                <div class="w-12 h-1 bg-brand-accentGold mx-auto rounded-full"></div>
+                <p class="text-brand-muted text-base sm:text-lg font-light pt-2">
+                    Tratamentos modernos realizados com ética, tecnologia e extremo rigor técnico para a sua saúde e beleza bucal.
+                </p>
+            </div>
+
+            <!-- Service Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Service 1: Cirurgia Oral Menor -->
+                <div class="group bg-brand-roseBg rounded-3xl p-8 border border-brand-softNude hover:border-brand-wine/40 transition-all duration-300 hover:shadow-xl flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-brand-wine/5 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform"></div>
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-brand-wine text-brand-accentGold flex items-center justify-center text-2xl mb-6 shadow-md group-hover:bg-brand-wineLight transition-colors">
+                            <i class="fa-solid fa-notes-medical"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-brand-wine mb-3">
+                            Cirurgia Oral Menor
+                        </h3>
+                        <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                            Procedimentos cirúrgicos de pequeno porte realizados em consultório com anestesia local, máximo conforto, controle da dor e rápida recuperação.
+                        </p>
+                        <ul class="space-y-2 text-xs text-brand-darkText font-medium mb-6">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-wine mr-2"></i> Extrações de Sisos e Dentes Simples</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-wine mr-2"></i> Frenectomia Labial e Lingual</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-wine mr-2"></i> Pequenas Biópsias Bucais</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-wine mr-2"></i> Adequação e Cirurgias Pré-Protéticas</li>
+                        </ul>
+                    </div>
+                    <a href="#agende" onclick="selectService('Cirurgia Oral Menor')" class="inline-flex items-center text-xs font-bold text-brand-wine uppercase tracking-wider group-hover:text-brand-wineLight">
+                        Agendar este serviço <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Service 2: Dentística Restauradora -->
+                <div class="group bg-brand-roseBg rounded-3xl p-8 border border-brand-softNude hover:border-brand-wine/40 transition-all duration-300 hover:shadow-xl flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-brand-wine/5 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform"></div>
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-brand-wine text-brand-accentGold flex items-center justify-center text-2xl mb-6 shadow-md group-hover:bg-brand-wineLight transition-colors">
+                            <i class="fa-solid fa-tooth"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-brand-wine mb-3">
+                            Dentística Restauradora
+                        </h3>
+                        <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                            Especialidade focada no resgate da função e da estética do sorriso. Restaurações imperceptíveis que imitam a cor, brilho e anatomia natural dos seus dentes.
+                        </p>
+                        <ul class="space-y-2 text-xs text-brand-darkText font-medium mb-6">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-wine mr-2"></i> Restaurações Estéticas em Resina</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-wine mr-2"></i> Reconstrução de Dentes Fraturados</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-wine mr-2"></i> Facetas & Fechamento de Diastemas</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-wine mr-2"></i> Clareamento Dental Seguro</li>
+                        </ul>
+                    </div>
+                    <a href="#agende" onclick="selectService('Dentística Restauradora')" class="inline-flex items-center text-xs font-bold text-brand-wine uppercase tracking-wider group-hover:text-brand-wineLight">
+                        Agendar este serviço <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3: Odontologia Hospitalar -->
+                <div class="group bg-brand-roseBg rounded-3xl p-8 border border-brand-softNude hover:border-brand-wine/40 transition-all duration-300 hover:shadow-xl flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-brand-wine/5 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform"></div>
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-brand-wine text-brand-accentGold flex items-center justify-center text-2xl mb-6 shadow-md group-hover:bg-brand-wineLight transition-colors">
+                            <i class="fa-solid fa-hospital-user"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-brand-wine mb-3">
+                            Odontologia Hospitalar
+                        </h3>
+                        <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                            Atendimento voltado a pacientes que necessitam de suporte em ambiente hospitalar, com doenças sistêmicas ou necessidades especiais de saúde.
+                        </p>
+                        <ul class="space-y-2 text-xs text-brand-darkText font-medium mb-6">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-wine mr-2"></i> Suporte a Pacientes Internados e de UTI</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-wine mr-2"></i> Manejo de Pacientes Compromissados</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-wine mr-2"></i> Prevenção de Infecções Orais Hospitalares</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-wine mr-2"></i> Avaliação Odontológica Pré e Pós-Operatória</li>
+                        </ul>
+                    </div>
+                    <a href="#agende" onclick="selectService('Odontologia Hospitalar')" class="inline-flex items-center text-xs font-bold text-brand-wine uppercase tracking-wider group-hover:text-brand-wineLight">
+                        Agendar este serviço <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Additional Clinic Services Banner -->
+            <div class="mt-12 bg-gradient-to-r from-brand-roseCard to-white p-6 sm:p-8 rounded-3xl border border-brand-softNude flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="space-y-1 text-center md:text-left">
+                    <h4 class="font-serif font-bold text-lg text-brand-wine">Necessita de outro tipo de consulta ou avaliação geral?</h4>
+                    <p class="text-xs sm:text-sm text-brand-muted">Realizamos também consultas preventivas, limpeza (tartarectomia), profilaxia e orientação personalizada.</p>
+                </div>
+                <a href="#agende" class="px-6 py-3 rounded-xl bg-brand-wine text-white text-xs font-bold uppercase tracking-wider hover:bg-brand-wineDark transition-colors whitespace-nowrap">
+                    Fazer Pergunta no WhatsApp
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SEÇÃO CAPTAÇÃO DE LEADS COM DIRECIONAMENTO PARA WHATSAPP (Requirement 7) -->
+    <section id="agende" class="py-20 bg-brand-roseBg relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="bg-white rounded-3xl shadow-2xl border border-brand-softNude overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+                
+                <!-- Form Sidebar Decor -->
+                <div class="lg:col-span-5 bg-gradient-to-br from-brand-wine via-brand-wineDark to-brand-burgundy text-white p-8 sm:p-10 flex flex-col justify-between relative">
+                    <div class="space-y-4">
+                        <span class="inline-block px-3 py-1 rounded-full bg-white/10 text-brand-accentGold text-xs font-semibold uppercase tracking-wider border border-white/10">
+                            Agendamento Rápido
+                        </span>
+                        <h3 class="font-serif text-2xl sm:text-3xl font-bold leading-snug">
+                            Agende sua consulta em poucos cliques
+                        </h3>
+                        <p class="text-rose-100/80 text-xs sm:text-sm font-light leading-relaxed">
+                            Preencha suas informações abaixo para ser direcionado(a) diretamente ao WhatsApp oficial da <strong class="text-white">Dra. Érika Divino (CRO/AL 6110)</strong> com sua mensagem já formatada!
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 pt-8">
+                        <div class="flex items-center gap-3 text-xs text-rose-100">
+                            <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-brand-accentGold shrink-0">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-white">Atendimento Rápido</p>
+                                <p class="text-[11px]">Resposta em horário comercial</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 text-xs text-rose-100">
+                            <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-brand-accentGold shrink-0">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-white">Privacidade Garantida</p>
+                                <p class="text-[11px]">Seus dados seguros e confidenciais</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Form Field -->
+                <div class="lg:col-span-7 p-8 sm:p-10">
+                    <form id="whatsappLeadForm" onsubmit="handleLeadSubmit(event)" class="space-y-5">
+                        
+                        <div>
+                            <label for="leadName" class="block text-xs font-semibold text-brand-darkText uppercase tracking-wider mb-2">
+                                Seu Nome Completo *
+                            </label>
+                            <div class="relative">
+                                <i class="fa-regular fa-user absolute left-4 top-3.5 text-brand-muted text-sm"></i>
+                                <input type="text" id="leadName" required placeholder="Ex: Maria Silva" 
+                                       class="w-full pl-11 pr-4 py-3 rounded-xl border border-brand-softNude focus:border-brand-wine focus:ring-2 focus:ring-brand-wine/20 outline-none text-sm bg-brand-roseBg/50 transition-all">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="leadPhone" class="block text-xs font-semibold text-brand-darkText uppercase tracking-wider mb-2">
+                                Seu Telefone / WhatsApp *
+                            </label>
+                            <div class="relative">
+                                <i class="fa-brands fa-whatsapp absolute left-4 top-3.5 text-brand-muted text-sm"></i>
+                                <input type="tel" id="leadPhone" required placeholder="(82) 99999-9999" 
+                                       class="w-full pl-11 pr-4 py-3 rounded-xl border border-brand-softNude focus:border-brand-wine focus:ring-2 focus:ring-brand-wine/20 outline-none text-sm bg-brand-roseBg/50 transition-all">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="leadService" class="block text-xs font-semibold text-brand-darkText uppercase tracking-wider mb-2">
+                                Serviço de Interesse *
+                            </label>
+                            <div class="relative">
+                                <i class="fa-solid fa-tooth absolute left-4 top-3.5 text-brand-muted text-sm"></i>
+                                <select id="leadService" required 
+                                        class="w-full pl-11 pr-4 py-3 rounded-xl border border-brand-softNude focus:border-brand-wine focus:ring-2 focus:ring-brand-wine/20 outline-none text-sm bg-brand-roseBg/50 transition-all text-brand-darkText appearance-none">
+                                    <option value="">Selecione o serviço...</option>
+                                    <option value="Cirurgia Oral Menor">Cirurgia Oral Menor</option>
+                                    <option value="Dentística Restauradora">Dentística Restauradora</option>
+                                    <option value="Odontologia Hospitalar">Odontologia Hospitalar</option>
+                                    <option value="Consulta Particular / Avaliação Geral">Consulta Particular / Avaliação Geral</option>
+                                    <option value="Dúvidas Gerais">Outros assuntos / Dúvidas</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="leadPeriod" class="block text-xs font-semibold text-brand-darkText uppercase tracking-wider mb-2">
+                                Preferência de Atendimento
+                            </label>
+                            <div class="grid grid-cols-2 gap-3">
+                                <label class="flex items-center gap-2 p-3 rounded-xl border border-brand-softNude bg-brand-roseBg/30 cursor-pointer hover:bg-brand-roseCard transition-colors">
+                                    <input type="radio" name="period" value="Atendimento Particular" checked class="text-brand-wine focus:ring-brand-wine">
+                                    <span class="text-xs font-medium text-brand-darkText">Particular</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-3 rounded-xl border border-brand-softNude bg-brand-roseBg/30 cursor-pointer hover:bg-brand-roseCard transition-colors">
+                                    <input type="radio" name="period" value="Informações ESF/SUS" class="text-brand-wine focus:ring-brand-wine">
+                                    <span class="text-xs font-medium text-brand-darkText">Informações ESF</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="leadMessage" class="block text-xs font-semibold text-brand-darkText uppercase tracking-wider mb-2">
+                                Mensagem Adicional (Opcional)
+                            </label>
+                            <textarea id="leadMessage" rows="3" placeholder="Descreva brevemente o que você precisa ou suas dúvidas..." 
+                                      class="w-full p-4 rounded-xl border border-brand-softNude focus:border-brand-wine focus:ring-2 focus:ring-brand-wine/20 outline-none text-sm bg-brand-roseBg/50 transition-all"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm tracking-wide shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 group">
+                            <i class="fa-brands fa-whatsapp text-xl group-hover:scale-110 transition-transform"></i>
+                            ENVIAR E ABRIR NO WHATSAPP
+                        </button>
+
+                        <p class="text-[11px] text-center text-brand-muted">
+                            Ao clicar em enviar, você será redirecionado para a conversa direta no WhatsApp.
+                        </p>
+
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACTS SECTION (Requirement 3 & 8) -->
+    <section id="contatos" class="py-16 bg-white border-t border-brand-softNude">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs uppercase tracking-widest text-brand-wine font-bold bg-brand-roseCard px-3 py-1 rounded-full">Fale Conosco</span>
+                <h2 class="font-serif text-3xl font-bold text-brand-wine mt-2">Canais de Contato & Localização</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                
+                <!-- Contact Card 1: WhatsApp -->
+                <div class="p-6 rounded-2xl bg-brand-roseBg border border-brand-softNude hover:border-brand-wine/30 transition-all">
+                    <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto text-xl mb-4">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-brand-wine text-lg mb-1">WhatsApp Oficial</h3>
+                    <p class="text-xs text-brand-muted mb-3">Agendamento & Dúvidas</p>
+                    <a href="https://wa.me/5582999999999?text=Ol%C3%A1%20Dra.%20%C3%89rika%20Divino!%20Gostaria%20de%20informa%C3%A7%C3%B5es." target="_blank" class="text-sm font-semibold text-brand-wine hover:underline">
+                        (82) 99999-9999
+                    </a>
+                </div>
+
+                <!-- Contact Card 2: Instagram -->
+                <div class="p-6 rounded-2xl bg-brand-roseBg border border-brand-softNude hover:border-brand-wine/30 transition-all">
+                    <div class="w-12 h-12 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center mx-auto text-xl mb-4">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-brand-wine text-lg mb-1">Instagram</h3>
+                    <p class="text-xs text-brand-muted mb-3">Dicas de saúde bucal e rotina</p>
+                    <a href="https://instagram.com/erikadivino" target="_blank" class="text-sm font-semibold text-brand-wine hover:underline">
+                        @ERIKADIVINO
+                    </a>
+                </div>
+
+                <!-- Contact Card 3: Registry / Local -->
+                <div class="p-6 rounded-2xl bg-brand-roseBg border border-brand-softNude hover:border-brand-wine/30 transition-all">
+                    <div class="w-12 h-12 rounded-full bg-brand-wine/10 text-brand-wine flex items-center justify-center mx-auto text-xl mb-4">
+                        <i class="fa-solid fa-id-card"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-brand-wine text-lg mb-1">Registro Profissional</h3>
+                    <p class="text-xs text-brand-muted mb-3">Conselho Regional de Odontologia</p>
+                    <span class="text-sm font-semibold text-brand-wine">
+                        CRO/AL 6110
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION (Requirement 8) -->
+    <footer class="bg-brand-wineDark text-white pt-16 pb-12 border-t border-brand-accentGold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-white/10 items-center">
+                
+                <!-- Profile Footer Info -->
+                <div class="md:col-span-6 space-y-4 text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start gap-3">
+                        <div class="w-12 h-12 rounded-full overflow-hidden border border-brand-accentGold p-0.5 bg-brand-wine">
+                            <img src="image_68ea69.png" 
+                                 alt="Dra. Érika Divino" 
+                                 class="w-full h-full object-cover rounded-full"
+                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1594824813570-78a333e1033d?auto=format&fit=crop&q=80&w=300';">
+                        </div>
+                        <div>
+                            <h3 class="font-serif font-bold text-lg text-white">Dra. Érika Divino</h3>
+                            <p class="text-xs text-brand-accentGold">Cirurgiã-Dentista | CRO/AL 6110</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-rose-100/70 max-w-md">
+                        Odontologia Hospitalar, Cirurgia Oral Menor e Dentística Restauradora com atendimento humanizado, seguro e de máxima excelência.
+                    </p>
+                </div>
+
+                <!-- Footer Quick Links & Socials -->
+                <div class="md:col-span-6 flex flex-col sm:flex-row items-center justify-center md:justify-end gap-6">
+                    <div class="flex items-center gap-4">
+                        <a href="https://instagram.com/erikadivino" target="_blank" rel="noopener" aria-label="Instagram"
+                           class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-brand-accentGold hover:text-brand-wineDark transition-colors">
+                            <i class="fa-brands fa-instagram text-lg"></i>
+                        </a>
+                        <a href="https://wa.me/5582999999999" target="_blank" rel="noopener" aria-label="WhatsApp"
+                           class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-emerald-500 transition-colors">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                        </a>
+                    </div>
+                    
+                    <a href="#agende" class="px-5 py-2.5 rounded-full text-xs font-semibold bg-brand-accentGold text-brand-wineDark hover:bg-white transition-colors uppercase tracking-wider">
+                        Agendar Consulta
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-rose-100/60 gap-4 text-center">
+                <p>© <span id="currentYear"></span> Dra. Érika Divino | Cirurgiã-Dentista | CRO/AL 6110. Todos os direitos reservados.</p>
+                <p class="text-[11px]">Desenvolvido com sofisticação & precisão técnica.</p>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Floating Persistent WhatsApp CTA Button -->
+    <a href="https://wa.me/5582999999999?text=Ol%C3%A1%20Dra.%20%C3%89rika%20Divino!%20Gostaria%20de%20agendar%20uma%20consulta." 
+       target="_blank" 
+       rel="noopener"
+       aria-label="Falar no WhatsApp"
+       class="fixed bottom-6 right-6 z-50 bg-emerald-500 text-white p-4 rounded-full shadow-2xl hover:bg-emerald-600 transition-all transform hover:scale-110 flex items-center justify-center border-2 border-white shadow-glow">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Set dynamic current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Toggle Mobile Navigation Drawer
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                if (mobileMenu.classList.contains('hidden')) {
+                    menuIcon.classList.remove('fa-xmark');
+                    menuIcon.classList.add('fa-bars');
+                } else {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-xmark');
+                }
+            });
+
+            // Close mobile menu when clicking any mobile link
+            document.querySelectorAll('.mobile-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.remove('fa-xmark');
+                    menuIcon.classList.add('fa-bars');
+                });
+            });
+        }
+
+        // Helper function to auto-select service in form when clicked from service card
+        function selectService(serviceName) {
+            const serviceSelect = document.getElementById('leadService');
+            if (serviceSelect) {
+                serviceSelect.value = serviceName;
+            }
+        }
+
+        // Lead Capture WhatsApp Form Handler (Requirement 7)
+        function handleLeadSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('leadName').value.trim();
+            const phone = document.getElementById('leadPhone').value.trim();
+            const service = document.getElementById('leadService').value;
+            const periodRadios = document.getElementsByName('period');
+            let period = 'Atendimento Particular';
+            for (const r of periodRadios) {
+                if (r.checked) {
+                    period = r.value;
+                    break;
+                }
+            }
+            const message = document.getElementById('leadMessage').value.trim();
+
+            // Format message string
+            let text = `Olá, Dra. Érika Divino!\n\n`;
+            text += `*Novo contato pelo site:*\n`;
+            text += `• *Nome:* ${name}\n`;
+            text += `• *Telefone:* ${phone}\n`;
+            text += `• *Serviço de interesse:* ${service}\n`;
+            text += `• *Modalidade:* ${period}\n`;
+            if (message) {
+                text += `• *Mensagem:* ${message}\n`;
+            }
+            text += `\nGostaria de agendar um horário para avaliação.`;
+
+            // Encode for WhatsApp URI
+            const encodedText = encodeURIComponent(text);
+            const whatsappNumber = "5582999999999"; // Replace with real phone number if provided
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+
+            // Open in new tab
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
