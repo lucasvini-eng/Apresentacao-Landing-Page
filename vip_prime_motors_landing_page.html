@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP Prime Motors | Veículos Seminovos e Premium</title>
+    <meta name="description" content="VIP Prime Motors - Encontre o seu veículo seminovo ou premium dos sonhos com as melhores condições e financiamento facilitado.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        vipRed: {
+                            500: '#ef4444',
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                            800: '#991b1b',
+                        },
+                        vipDark: {
+                            950: '#09090b',
+                            900: '#121215',
+                            800: '#1c1c22',
+                            700: '#272730',
+                            600: '#3f3f4e'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #09090b;
+            color: #f4f4f5;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism effects */
+        .glass-panel {
+            background: rgba(28, 28, 34, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: linear-gradient(145deg, rgba(28, 28, 34, 0.9), rgba(18, 18, 21, 0.95));
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(220, 38, 38, 0.5);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -10px rgba(220, 38, 38, 0.25);
+        }
+
+        /* Red glow pulse */
+        .glow-red {
+            box-shadow: 0 0 25px rgba(220, 38, 38, 0.4);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09090b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #272730;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #dc2626;
+        }
+
+        /* Hero Text Gradient */
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #d4d4d8 50%, #dc2626 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Badge pulse animation */
+        @keyframes pulse-slow {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.08); opacity: 0.85; }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 3s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-vipRed-600 selection:text-white">
+
+    <!-- HEADER BAR -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 glass-panel border-b border-white/10" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- BRAND LOGO -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="relative w-14 h-12 flex items-center justify-center">
+                        <!-- SVG Emblem SVG based on attached VIP Multimarcas badge -->
+                        <svg viewBox="0 0 200 130" class="w-full h-full drop-shadow-[0_2px_8px_rgba(220,38,38,0.3)]">
+                            <!-- Stars -->
+                            <g fill="#F59E0B">
+                                <polygon points="100,5 102,12 109,12 103,16 105,23 100,19 95,23 97,16 91,12 98,12" />
+                                <polygon points="80,10 82,16 88,16 83,19 85,25 80,21 75,25 77,19 72,16 78,16" />
+                                <polygon points="120,10 122,16 128,16 123,19 125,25 120,21 115,25 117,19 112,16 118,16" />
+                                <polygon points="62,18 64,23 70,23 65,26 67,31 62,28 57,31 59,26 54,23 60,23" />
+                                <polygon points="138,18 140,23 146,23 141,26 143,31 138,28 133,31 135,26 130,23 136,23" />
+                            </g>
+                            <!-- Wings Left -->
+                            <path d="M10,40 L90,65 L85,85 L5,50 Z" fill="url(#silverGradient)" />
+                            <path d="M15,55 L90,75 L85,92 L10,65 Z" fill="url(#silverGradient2)" />
+                            <path d="M25,70 L90,85 L85,98 L20,78 Z" fill="#71717A" />
+                            <!-- Wings Right -->
+                            <path d="M190,40 L110,65 L115,85 L195,50 Z" fill="url(#silverGradient)" />
+                            <path d="M185,55 L110,75 L115,92 L190,65 Z" fill="url(#silverGradient2)" />
+                            <path d="M175,70 L110,85 L115,98 L180,78 Z" fill="#71717A" />
+                            <!-- Central Badge -->
+                            <circle cx="100" cy="78" r="36" fill="#18181B" stroke="url(#silverGradient)" stroke-width="4"/>
+                            <circle cx="100" cy="78" r="30" fill="none" stroke="#dc2626" stroke-width="2"/>
+                            <!-- Text VIP -->
+                            <text x="100" y="82" font-family="Arial, sans-serif" font-size="22" font-weight="900" fill="#E4E4E7" text-anchor="middle">VIP</text>
+                            <text x="100" y="94" font-family="Arial, sans-serif" font-size="7" font-weight="700" fill="#A1A1AA" letter-spacing="1" text-anchor="middle">MULTIMARCAS</text>
+                            <!-- Gradients -->
+                            <defs>
+                                <linearGradient id="silverGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#E4E4E7" />
+                                    <stop offset="50%" stop-color="#9CA3AF" />
+                                    <stop offset="100%" stop-color="#4B5563" />
+                                </linearGradient>
+                                <linearGradient id="silverGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#D1D5DB" />
+                                    <stop offset="100%" stop-color="#374151" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-black tracking-wider text-white group-hover:text-vipRed-500 transition-colors uppercase leading-none">VIP PRIME</span>
+                        <span class="text-[10px] font-semibold tracking-widest text-zinc-400 uppercase leading-tight">MOTORS</span>
+                    </div>
+                </a>
+
+                <!-- DESKTOP MENU LINKS -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#estoque" class="text-sm font-medium text-zinc-300 hover:text-vipRed-500 transition-colors">Estoque</a>
+                    <a href="#venda-seu-carro" class="text-sm font-medium text-zinc-300 hover:text-vipRed-500 transition-colors">Venda seu Carro</a>
+                    <a href="#financie" class="text-sm font-medium text-zinc-300 hover:text-vipRed-500 transition-colors">Financie</a>
+                    <a href="#sobre" class="text-sm font-medium text-zinc-300 hover:text-vipRed-500 transition-colors">Sobre Nós</a>
+                </nav>
+
+                <!-- RIGHT ACTION BUTTONS -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <a href="https://instagram.com/vipprimemotors" target="_blank" rel="noopener noreferrer" 
+                       class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-zinc-300 hover:text-pink-500 hover:border-pink-500 transition-all hover:scale-110" 
+                       title="Siga no Instagram">
+                        <i class="fab font-xl fa-instagram"></i>
+                    </a>
+                    
+                    <a href="#contato" class="px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-vipRed-600 to-vipRed-700 hover:from-vipRed-500 hover:to-vipRed-600 transition-all shadow-lg hover:shadow-vipRed-600/30 flex items-center space-x-2">
+                        <i class="fa-solid fa-comments"></i>
+                        <span>Fale Conosco</span>
+                    </a>
+                </div>
+
+                <!-- MOBILE HAMBURGER BUTTON -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-zinc-300 hover:text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- MOBILE MENU DRAWER -->
+        <div id="mobileMenu" class="hidden md:hidden glass-panel border-t border-white/10 px-4 pt-4 pb-6 space-y-4">
+            <a href="#estoque" class="block text-base font-medium text-zinc-200 hover:text-vipRed-500 py-1">Estoque</a>
+            <a href="#venda-seu-carro" class="block text-base font-medium text-zinc-200 hover:text-vipRed-500 py-1">Venda seu Carro</a>
+            <a href="#financie" class="block text-base font-medium text-zinc-200 hover:text-vipRed-500 py-1">Financie</a>
+            <a href="#sobre" class="block text-base font-medium text-zinc-200 hover:text-vipRed-500 py-1">Sobre Nós</a>
+            <div class="pt-2 flex items-center space-x-3">
+                <a href="https://instagram.com/vipprimemotors" target="_blank" class="flex-1 py-2 rounded-lg glass-panel text-center text-sm text-zinc-300 hover:text-pink-500">
+                    <i class="fab fa-instagram mr-2"></i>Instagram
+                </a>
+                <a href="#contato" class="flex-1 py-2 rounded-lg text-center text-sm font-semibold text-white bg-vipRed-600 hover:bg-vipRed-700">
+                    <i class="fa-solid fa-comments mr-2"></i>Contato
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO BANNER SECTION -->
+    <section class="relative min-h-screen pt-28 pb-16 flex items-center justify-center overflow-hidden">
+        <!-- Background Overlay & Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1920&q=80" 
+                 alt="VIP Prime Motors Showroom" 
+                 class="w-full h-full object-cover object-center opacity-35 filter brightness-90">
+            <div class="absolute inset-0 bg-gradient-to-t from-vipDark-950 via-vipDark-950/70 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-vipDark-950 via-transparent to-vipDark-950/80"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10">
+            <!-- Badge -->
+            <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-panel border border-vipRed-500/30 text-vipRed-500 text-xs sm:text-sm font-semibold uppercase tracking-wider mb-8 animate-pulse-slow">
+                <i class="fas fa-star text-amber-400"></i>
+                <span>Sua Concessionária de Confiança em Alagoas</span>
+                <i class="fas fa-star text-amber-400"></i>
+            </div>
+
+            <!-- Headline -->
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white max-w-4xl mx-auto leading-tight">
+                Seu próximo carro dos sonhos <br class="hidden sm:inline">
+                <span class="text-gradient">está na VIP Prime Motors.</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="mt-6 text-lg sm:text-xl text-zinc-300 max-w-2xl mx-auto font-light">
+                As melhores marcas, seminovos selecionados e procedência garantida. Realize o seu financiamento com aprovação rápida e taxas exclusivas.
+            </p>
+
+            <!-- Hero Action Buttons -->
+            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#estoque" class="w-full sm:w-auto px-8 py-4 rounded-xl text-base font-bold text-white bg-gradient-to-r from-vipRed-600 via-vipRed-700 to-vipRed-800 hover:from-vipRed-500 hover:to-vipRed-600 shadow-xl shadow-vipRed-600/30 transition-all transform hover:-translate-y-1 flex items-center justify-center space-x-3">
+                    <i class="fas fa-car"></i>
+                    <span>Ver Estoque Completo</span>
+                </a>
+
+                <a href="https://wa.me/5582996402650?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20atendimento." target="_blank" 
+                   class="w-full sm:w-auto px-8 py-4 rounded-xl text-base font-bold text-emerald-400 glass-panel border border-emerald-500/30 hover:bg-emerald-500/10 hover:border-emerald-500 transition-all transform hover:-translate-y-1 flex items-center justify-center space-x-3">
+                    <i class="fab fa-whatsapp text-xl"></i>
+                    <span>Atendimento Via WhatsApp</span>
+                </a>
+            </div>
+
+            <!-- Highlights Key Stats -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <div class="glass-panel p-4 rounded-xl text-center">
+                    <span class="text-2xl sm:text-3xl font-extrabold text-white">100%</span>
+                    <p class="text-xs text-zinc-400 mt-1 uppercase font-medium">Procedência Checada</p>
+                </div>
+                <div class="glass-panel p-4 rounded-xl text-center">
+                    <span class="text-2xl sm:text-3xl font-extrabold text-vipRed-500">+1.500</span>
+                    <p class="text-xs text-zinc-400 mt-1 uppercase font-medium">Sonhos Realizados</p>
+                </div>
+                <div class="glass-panel p-4 rounded-xl text-center">
+                    <span class="text-2xl sm:text-3xl font-extrabold text-white">Garantia</span>
+                    <p class="text-xs text-zinc-400 mt-1 uppercase font-medium">Revisados e Periciados</p>
+                </div>
+                <div class="glass-panel p-4 rounded-xl text-center">
+                    <span class="text-2xl sm:text-3xl font-extrabold text-vipRed-500">Taxas VIP</span>
+                    <p class="text-xs text-zinc-400 mt-1 uppercase font-medium">Financiamento Ágil</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEARCH & FILTER SECTION -->
+    <section class="relative z-20 -mt-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="glass-panel rounded-2xl p-6 sm:p-8 shadow-2xl border border-white/10">
+            <div class="flex items-center space-x-3 mb-6">
+                <div class="w-3 h-8 bg-vipRed-600 rounded-full"></div>
+                <h2 class="text-xl font-bold text-white uppercase tracking-wide">Encontre seu Veículo</h2>
+            </div>
+
+            <form id="searchForm" onsubmit="event.preventDefault(); applyVehicleFilters();" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Marca Select -->
+                <div>
+                    <label class="block text-xs font-semibold text-zinc-400 mb-2 uppercase">Marca</label>
+                    <div class="relative">
+                        <select id="filterBrand" onchange="applyVehicleFilters()" class="w-full bg-vipDark-900 text-white rounded-lg px-4 py-3 border border-zinc-700 focus:border-vipRed-600 focus:outline-none appearance-none cursor-pointer">
+                            <option value="">Todas as Marcas</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="Porsche">Porsche</option>
+                            <option value="Jeep">Jeep</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Volkswagen">Volkswagen</option>
+                            <option value="Mercedes-Benz">Mercedes-Benz</option>
+                            <option value="Audi">Audi</option>
+                        </select>
+                        <i class="fas fa-chevron-down absolute right-4 top-4 text-zinc-500 pointer-events-none"></i>
+                    </div>
+                </div>
+
+                <!-- Price Range -->
+                <div>
+                    <label class="block text-xs font-semibold text-zinc-400 mb-2 uppercase">Faixa de Preço</label>
+                    <div class="relative">
+                        <select id="filterPrice" onchange="applyVehicleFilters()" class="w-full bg-vipDark-900 text-white rounded-lg px-4 py-3 border border-zinc-700 focus:border-vipRed-600 focus:outline-none appearance-none cursor-pointer">
+                            <option value="">Qualquer Valor</option>
+                            <option value="100000">Até R$ 100.000</option>
+                            <option value="200000">Até R$ 200.000</option>
+                            <option value="350000">Até R$ 350.000</option>
+                            <option value="500000">Acima de R$ 350.000</option>
+                        </select>
+                        <i class="fas fa-chevron-down absolute right-4 top-4 text-zinc-500 pointer-events-none"></i>
+                    </div>
+                </div>
+
+                <!-- Keyword Search -->
+                <div>
+                    <label class="block text-xs font-semibold text-zinc-400 mb-2 uppercase">Busca por Modelo</label>
+                    <input type="text" id="filterKeyword" oninput="applyVehicleFilters()" placeholder="Ex: Civic, Hilux, Macan..." 
+                           class="w-full bg-vipDark-900 text-white rounded-lg px-4 py-3 border border-zinc-700 focus:border-vipRed-600 focus:outline-none placeholder-zinc-500">
+                </div>
+
+                <!-- Search Button -->
+                <div class="flex items-end">
+                    <button type="button" onclick="applyVehicleFilters()" class="w-full py-3 px-6 rounded-lg bg-vipRed-600 hover:bg-vipRed-700 text-white font-bold transition-colors flex items-center justify-center space-x-2 shadow-lg shadow-vipRed-600/30">
+                        <i class="fas fa-search"></i>
+                        <span>Buscar Veículo</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- BRANDS ICON SECTION -->
+    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+            <span class="text-xs font-bold text-vipRed-500 uppercase tracking-widest">Procedência e Variedade</span>
+            <h3 class="text-2xl font-black text-white mt-1">Trabalhamos com as Melhores Marcas</h3>
+        </div>
+
+        <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
+            <!-- Brand Badge 1 -->
+            <button onclick="filterByBrandBadge('BMW')" class="brand-badge group p-4 rounded-xl glass-card flex flex-col items-center justify-center space-y-2 hover:border-vipRed-600 cursor-pointer">
+                <i class="fa-solid fa-car text-3xl text-zinc-400 group-hover:text-vipRed-500 transition-colors"></i>
+                <span class="text-xs font-bold text-zinc-300 group-hover:text-white">BMW</span>
+            </button>
+            <!-- Brand Badge 2 -->
+            <button onclick="filterByBrandBadge('Toyota')" class="brand-badge group p-4 rounded-xl glass-card flex flex-col items-center justify-center space-y-2 hover:border-vipRed-600 cursor-pointer">
+                <i class="fa-solid fa-car-side text-3xl text-zinc-400 group-hover:text-vipRed-500 transition-colors"></i>
+                <span class="text-xs font-bold text-zinc-300 group-hover:text-white">Toyota</span>
+            </button>
+            <!-- Brand Badge 3 -->
+            <button onclick="filterByBrandBadge('Porsche')" class="brand-badge group p-4 rounded-xl glass-card flex flex-col items-center justify-center space-y-2 hover:border-vipRed-600 cursor-pointer">
+                <i class="fa-solid fa-shield-halved text-3xl text-zinc-400 group-hover:text-vipRed-500 transition-colors"></i>
+                <span class="text-xs font-bold text-zinc-300 group-hover:text-white">Porsche</span>
+            </button>
+            <!-- Brand Badge 4 -->
+            <button onclick="filterByBrandBadge('Jeep')" class="brand-badge group p-4 rounded-xl glass-card flex flex-col items-center justify-center space-y-2 hover:border-vipRed-600 cursor-pointer">
+                <i class="fa-solid fa-truck-monster text-3xl text-zinc-400 group-hover:text-vipRed-500 transition-colors"></i>
+                <span class="text-xs font-bold text-zinc-300 group-hover:text-white">Jeep</span>
+            </button>
+            <!-- Brand Badge 5 -->
+            <button onclick="filterByBrandBadge('Honda')" class="brand-badge group p-4 rounded-xl glass-card flex flex-col items-center justify-center space-y-2 hover:border-vipRed-600 cursor-pointer">
+                <i class="fa-solid fa-car-rear text-3xl text-zinc-400 group-hover:text-vipRed-500 transition-colors"></i>
+                <span class="text-xs font-bold text-zinc-300 group-hover:text-white">Honda</span>
+            </button>
+            <!-- Brand Badge 6 -->
+            <button onclick="filterByBrandBadge('Volkswagen')" class="brand-badge group p-4 rounded-xl glass-card flex flex-col items-center justify-center space-y-2 hover:border-vipRed-600 cursor-pointer">
+                <i class="fa-solid fa-gauge-high text-3xl text-zinc-400 group-hover:text-vipRed-500 transition-colors"></i>
+                <span class="text-xs font-bold text-zinc-300 group-hover:text-white">VW</span>
+            </button>
+            <!-- Brand Badge 7 -->
+            <button onclick="filterByBrandBadge('Mercedes-Benz')" class="brand-badge group p-4 rounded-xl glass-card flex flex-col items-center justify-center space-y-2 hover:border-vipRed-600 cursor-pointer">
+                <i class="fa-solid fa-star text-3xl text-zinc-400 group-hover:text-vipRed-500 transition-colors"></i>
+                <span class="text-xs font-bold text-zinc-300 group-hover:text-white">Mercedes</span>
+            </button>
+            <!-- Brand Badge 8 -->
+            <button onclick="filterByBrandBadge('')" class="brand-badge group p-4 rounded-xl glass-card flex flex-col items-center justify-center space-y-2 border-vipRed-600/50 bg-vipRed-600/10 cursor-pointer">
+                <i class="fa-solid fa-[#dc2626] fa-layer-group text-3xl text-vipRed-500"></i>
+                <span class="text-xs font-bold text-white">Ver Todas</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ULTIMAS NOVIDADES / CARDS SECTION -->
+    <section id="estoque" class="py-16 bg-vipDark-900/60 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-xs font-bold text-vipRed-500 uppercase tracking-widest">Seminovos Selecionados</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">Últimas Novidades do Estoque</h2>
+                </div>
+                <p class="text-zinc-400 text-sm mt-2 md:mt-0 max-w-md">
+                    Todos os nossos veículos passam por rigorosa perícia cautelar e checagem mecânica.
+                </p>
+            </div>
+
+            <!-- CARDS GRID CONTAINER -->
+            <div id="vehiclesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Vehicle Cards standard generated via JS dynamically -->
+            </div>
+
+            <!-- No results box fallback -->
+            <div id="noResults" class="hidden text-center py-12 glass-panel rounded-2xl">
+                <i class="fas fa-search text-4xl text-zinc-600 mb-3"></i>
+                <p class="text-lg text-zinc-300 font-medium">Nenhum veículo encontrado com os filtros selecionados.</p>
+                <button onclick="resetFilters()" class="mt-4 px-6 py-2 rounded-lg bg-vipRed-600 text-white font-semibold text-sm hover:bg-vipRed-700">
+                    Limpar Filtros
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACTION CARDS: VENDA SEU CARRO & FINANCIE -->
+    <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <!-- Card 1: Venda Seu Carro -->
+            <div id="venda-seu-carro" class="relative group rounded-3xl overflow-hidden glass-card p-8 sm:p-10 border border-white/10 flex flex-col justify-between">
+                <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-vipRed-600/10 rounded-full blur-3xl group-hover:bg-vipRed-600/20 transition-all"></div>
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-vipRed-600/20 text-vipRed-500 flex items-center justify-center text-2xl font-bold mb-6 border border-vipRed-500/30">
+                        <i class="fas fa-hand-holding-dollar"></i>
+                    </div>
+                    <span class="text-xs font-bold text-vipRed-500 uppercase tracking-widest">Avaliação Justa & Dinheiro Rápido</span>
+                    <h3 class="text-3xl font-black text-white mt-2 mb-4">Venda Seu Carro para a VIP Motors</h3>
+                    <p class="text-zinc-300 text-sm leading-relaxed mb-6">
+                        Quer vender ou trocar seu seminovo sem complicação? Garantimos a melhor avaliação do mercado em Maceió e região, com pagamento rápido e burocracia zero.
+                    </p>
+                    <ul class="space-y-3 text-sm text-zinc-300 mb-8">
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-vipRed-500"></i>
+                            <span>Avaliação presencial ou online sem compromisso</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-vipRed-500"></i>
+                            <span>Pagamento seguro via PIX/Transferência</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-vipRed-500"></i>
+                            <span>Quitamos seu financiamento atual</span>
+                        </li>
+                    </ul>
+                </div>
+                <button onclick="openLeadModal('Quero Vender Meu Carro')" class="w-full py-4 rounded-xl font-bold text-white bg-gradient-to-r from-vipRed-600 to-vipRed-700 hover:from-vipRed-500 hover:to-vipRed-600 shadow-lg shadow-vipRed-600/25 transition-all text-center">
+                    Quero Avaliar Meu Veículo
+                </button>
+            </div>
+
+            <!-- Card 2: Financie Seu Sonho -->
+            <div id="financie" class="relative group rounded-3xl overflow-hidden glass-card p-8 sm:p-10 border border-white/10 flex flex-col justify-between">
+                <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl group-hover:bg-amber-500/20 transition-all"></div>
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-2xl font-bold mb-6 border border-amber-500/30">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Condições Exclusivas</span>
+                    <h3 class="text-3xl font-black text-white mt-2 mb-4">Financie Seu Sonho Hoje</h3>
+                    <p class="text-zinc-300 text-sm leading-relaxed mb-6">
+                        Parceria direta com os principais bancos para oferecer as melhores taxas do mercado. Faça uma simulação rápida de crédito no WhatsApp.
+                    </p>
+                    <ul class="space-y-3 text-sm text-zinc-300 mb-8">
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-amber-400"></i>
+                            <span>Aprovação facilitada e sem burocracia</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-amber-400"></i>
+                            <span>Entrada parcelada no cartão de crédito</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-amber-400"></i>
+                            <span>Primeira parcela em até 60 dias</span>
+                        </li>
+                    </ul>
+                </div>
+                <button onclick="openLeadModal('Simulação de Financiamento')" class="w-full py-4 rounded-xl font-bold text-zinc-950 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow-lg shadow-amber-500/25 transition-all text-center">
+                    Simular Financiamento
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LEAD FORM SECTION -->
+    <section id="contato" class="py-20 bg-vipDark-900 border-t border-white/5 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="text-xs font-bold text-vipRed-500 uppercase tracking-widest">Atendimento Rápido</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">Fale Com Nossos Consultores</h2>
+                <p class="text-zinc-400 text-sm mt-2">Preencha o formulário abaixo e receba atendimento imediato via WhatsApp.</p>
+            </div>
+
+            <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-white/10 shadow-2xl relative">
+                <form id="leadCaptureForm" onsubmit="handleLeadSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Nome -->
+                        <div>
+                            <label class="block text-xs font-semibold text-zinc-400 uppercase mb-2">Seu Nome Completo *</label>
+                            <input type="text" id="leadName" required placeholder="Ex: Carlos Silva" 
+                                   class="w-full bg-vipDark-950 border border-zinc-700 focus:border-vipRed-600 rounded-xl px-4 py-3.5 text-white placeholder-zinc-500 focus:outline-none">
+                        </div>
+                        
+                        <!-- WhatsApp -->
+                        <div>
+                            <label class="block text-xs font-semibold text-zinc-400 uppercase mb-2">WhatsApp / Telefone *</label>
+                            <input type="tel" id="leadPhone" required placeholder="(82) 99999-9999" 
+                                   class="w-full bg-vipDark-950 border border-zinc-700 focus:border-vipRed-600 rounded-xl px-4 py-3.5 text-white placeholder-zinc-500 focus:outline-none">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Email -->
+                        <div>
+                            <label class="block text-xs font-semibold text-zinc-400 uppercase mb-2">Seu E-mail (Opcional)</label>
+                            <input type="email" id="leadEmail" placeholder="seu@email.com" 
+                                   class="w-full bg-vipDark-950 border border-zinc-700 focus:border-vipRed-600 rounded-xl px-4 py-3.5 text-white placeholder-zinc-500 focus:outline-none">
+                        </div>
+
+                        <!-- Interresse -->
+                        <div>
+                            <label class="block text-xs font-semibold text-zinc-400 uppercase mb-2">Interesse Principal</label>
+                            <select id="leadInterest" class="w-full bg-vipDark-950 border border-zinc-700 focus:border-vipRed-600 rounded-xl px-4 py-3.5 text-white focus:outline-none">
+                                <option value="Comprar Veículo">Comprar Veículo</option>
+                                <option value="Financiamento">Simular Financiamento</option>
+                                <option value="Vender/Trocar Veículo">Vender ou Trocar Meu Carro</option>
+                                <option value="Dúvida Geral">Outras Informações</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Mensagem -->
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-400 uppercase mb-2">Modelo Desejado ou Mensagem</label>
+                        <textarea id="leadMessage" rows="3" placeholder="Ex: Gostaria de saber mais sobre o Toyota Corolla ou opções de financiamento..." 
+                                  class="w-full bg-vipDark-950 border border-zinc-700 focus:border-vipRed-600 rounded-xl px-4 py-3.5 text-white placeholder-zinc-500 focus:outline-none resize-none"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="w-full py-4 rounded-xl font-bold text-lg text-white bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 shadow-xl shadow-emerald-600/20 transition-all flex items-center justify-center space-x-3">
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                        <span>Iniciar Conversa no WhatsApp</span>
+                    </button>
+                    <p class="text-center text-xs text-zinc-500">Ao clicar, você será redirecionado para o nosso WhatsApp oficial: (82) 99640-2650</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE NOS SECTION -->
+    <section id="sobre" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="relative">
+                <div class="aspect-video rounded-3xl overflow-hidden glass-panel border border-white/10 shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1200&q=80" 
+                         alt="VIP Prime Motors Showroom" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute -bottom-6 -right-6 glass-panel p-6 rounded-2xl border border-vipRed-500/30 hidden sm:block">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-vipRed-600/20 flex items-center justify-center text-vipRed-500 text-2xl">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div>
+                            <span class="text-lg font-bold text-white block">Excelência e Qualidade</span>
+                            <span class="text-xs text-zinc-400">Atendimento Humanizado e Personalizado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <span class="text-xs font-bold text-vipRed-500 uppercase tracking-widest">Sobre A VIP Prime Motors</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white">Sua Melhor Experiência na Compra do Seminovos</h2>
+                <p class="text-zinc-300 text-sm sm:text-base leading-relaxed">
+                    A <strong class="text-white">VIP Prime Motors</strong> nasceu com o objetivo de transformar o processo de compra e venda de veículos em Alagoas. Oferecemos um estoque selecionado a dedo com os melhores seminovos e importados da região.
+                </p>
+                <p class="text-zinc-400 text-sm leading-relaxed">
+                    Nossa equipe é especializada em entender a necessidade de cada cliente para entregar a melhor solução em mobilidade, com segurança jurídica, pericia aprovada e transparência em cada negociação.
+                </p>
+                <div class="grid grid-cols-2 gap-4 pt-4">
+                    <div class="border-l-2 border-vipRed-600 pl-4">
+                        <h4 class="text-white font-bold text-sm">Transparência Total</h4>
+                        <p class="text-xs text-zinc-400 mt-1">Histórico e vistoria detalhada de cada veículo.</p>
+                    </div>
+                    <div class="border-l-2 border-vipRed-600 pl-4">
+                        <h4 class="text-white font-bold text-sm">Financiamento Ágil</h4>
+                        <p class="text-xs text-zinc-400 mt-1">Aprovação simplificada com taxas competitivas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION & HOURS SECTION -->
+    <section class="py-16 bg-vipDark-900 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-panel rounded-3xl p-8 sm:p-12 border border-white/10 shadow-2xl grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                
+                <!-- Info Column 1 -->
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-3 h-8 bg-vipRed-600 rounded-full"></div>
+                        <h3 class="text-2xl font-black text-white">Venha nos Visitar</h3>
+                    </div>
+                    <p class="text-zinc-300 text-sm leading-relaxed">
+                        Nossa loja conta com um ambiente moderno e climatizado para receber você com total conforto.
+                    </p>
+
+                    <!-- Horário Requirement -->
+                    <div class="p-4 rounded-xl bg-vipDark-950 border border-zinc-800 space-y-2">
+                        <div class="flex items-center space-x-3 text-vipRed-500 font-bold text-sm uppercase">
+                            <i class="far fa-clock"></i>
+                            <span>Horário de Atendimento</span>
+                        </div>
+                        <p class="text-sm font-medium text-white">
+                            Seg a sexta - 9h às 18h | Sáb - 9h às 16h
+                        </p>
+                    </div>
+
+                    <!-- Contact items -->
+                    <div class="space-y-3 text-sm text-zinc-300">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-vipRed-500 mt-1"></i>
+                            <span>Av. Principal de Automóveis, Maceió - AL</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fab fa-whatsapp text-emerald-400"></i>
+                            <span class="font-semibold text-white">(82) 99640-2650</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Embed Placeholder / Graphical Widget -->
+                <div class="lg:col-span-2 h-72 rounded-2xl overflow-hidden relative border border-zinc-800">
+                    <iframe 
+                        title="Localização VIP Prime Motors"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62883.33610992336!2d-35.7500!3d-9.6500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x70145c22533b3b3%3A0x8613e55f0cb1ed8e!2sMacei%C3%B3%2C%20AL!5e0!3m2!1spt-BR!2sbr!4v1680000000000!5m2!1spt-BR!2sbr" 
+                        class="w-full h-full filter grayscale contrast-125 opacity-80 hover:opacity-100 transition-all border-0" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/5582996402650?text=Ol%C3%A1!%20Estou%20no%20site%20da%20VIP%20Prime%20Motors%20e%20gostaria%20de%20informa%C3%A7%C3%B5es." 
+       target="_blank" 
+       rel="noopener noreferrer"
+       class="fixed bottom-6 right-6 z-50 group flex items-center" 
+       aria-label="Fale conosco no WhatsApp">
+        <!-- Hover Badge -->
+        <span class="hidden sm:inline-block mr-3 px-4 py-2 rounded-xl text-xs font-bold text-white bg-zinc-900 border border-emerald-500/40 shadow-2xl opacity-0 group-hover:opacity-100 transition-all transform translate-x-2 group-hover:translate-x-0">
+            Fale conosco agora!
+        </span>
+        <!-- Button Circle -->
+        <div class="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center text-2xl shadow-2xl glow-red hover:scale-110 transition-all duration-300">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+    </a>
+
+    <!-- FOOTER -->
+    <footer class="bg-vipDark-950 border-t border-white/10 py-12 text-zinc-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                
+                <!-- Col 1: Logo & Bio -->
+                <div class="space-y-4 md:col-span-1">
+                    <a href="#" class="flex items-center space-x-3">
+                        <div class="flex flex-col">
+                            <span class="text-lg font-black tracking-wider text-white uppercase">VIP PRIME</span>
+                            <span class="text-[9px] font-semibold tracking-widest text-zinc-500 uppercase">MOTORS</span>
+                        </div>
+                    </a>
+                    <p class="text-xs text-zinc-400 leading-relaxed">
+                        Sua concessionária de referência em seminovos e veículos de alto padrão. Transparência, procedência e as melhores condições de Alagoas.
+                    </p>
+                    <!-- Social icons -->
+                    <div class="flex items-center space-x-3 pt-2">
+                        <a href="https://instagram.com/vipprimemotors" target="_blank" class="w-9 h-9 rounded-full glass-panel flex items-center justify-center text-zinc-300 hover:text-pink-500 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/5582996402650" target="_blank" class="w-9 h-9 rounded-full glass-panel flex items-center justify-center text-zinc-300 hover:text-emerald-400 transition-colors">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation -->
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase mb-4 tracking-wider">Navegação</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#estoque" class="hover:text-vipRed-500 transition-colors">Nosso Estoque</a></li>
+                        <li><a href="#venda-seu-carro" class="hover:text-vipRed-500 transition-colors">Venda seu Carro</a></li>
+                        <li><a href="#financie" class="hover:text-vipRed-500 transition-colors">Simular Financiamento</a></li>
+                        <li><a href="#sobre" class="hover:text-vipRed-500 transition-colors">Sobre a VIP Motors</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Atendimento -->
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase mb-4 tracking-wider">Atendimento</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li class="text-zinc-300 font-medium">Segunda a Sexta: 9h às 18h</li>
+                        <li class="text-zinc-300 font-medium">Sábado: 9h às 16h</li>
+                        <li class="pt-2 text-emerald-400 font-bold"><i class="fab fa-whatsapp mr-1"></i> (82) 99640-2650</li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Garantias -->
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase mb-4 tracking-wider">Garantia VIP</h4>
+                    <p class="text-xs text-zinc-400 leading-relaxed mb-3">
+                        Veículos revisados e com laudo pericial cautelar 100% aprovado.
+                    </p>
+                    <a href="#contato" class="inline-block px-4 py-2 rounded-lg bg-vipDark-800 text-xs text-zinc-200 border border-zinc-700 hover:border-vipRed-500">
+                        Solicitar Atendimento
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="border-t border-zinc-800 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500">
+                <p>&copy; 2026 VIP Prime Motors. Todos os direitos reservados.</p>
+                <p class="mt-2 sm:mt-0">Atendimento oficial WhatsApp: (82) 99640-2650</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GENERAL LEAD MODAL -->
+    <div id="leadModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+        <div class="glass-panel max-w-md w-full rounded-3xl p-6 sm:p-8 border border-white/10 shadow-2xl relative">
+            <button onclick="closeLeadModal()" class="absolute top-4 right-4 text-zinc-400 hover:text-white text-xl p-2">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <h3 id="modalTitle" class="text-2xl font-black text-white mb-2">Falar com Consultor</h3>
+            <p id="modalSubtitle" class="text-xs text-zinc-400 mb-6">Preencha seus dados para conectar diretamente no WhatsApp.</p>
+
+            <form onsubmit="handleModalSubmit(event)" class="space-y-4">
+                <input type="hidden" id="modalSubject" value="Interesse Geral">
+                <div>
+                    <label class="block text-xs font-semibold text-zinc-400 uppercase mb-1">Nome Completo *</label>
+                    <input type="text" id="modalName" required placeholder="Seu nome" 
+                           class="w-full bg-vipDark-950 border border-zinc-700 focus:border-vipRed-600 rounded-xl px-4 py-3 text-white focus:outline-none text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-zinc-400 uppercase mb-1">Telefone / WhatsApp *</label>
+                    <input type="tel" id="modalPhone" required placeholder="(82) 99999-9999" 
+                           class="w-full bg-vipDark-950 border border-zinc-700 focus:border-vipRed-600 rounded-xl px-4 py-3 text-white focus:outline-none text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-zinc-400 uppercase mb-1">Observações / Detalhes</label>
+                    <textarea id="modalMessage" rows="2" placeholder="Ex: Informações sobre condições de entrada..." 
+                              class="w-full bg-vipDark-950 border border-zinc-700 focus:border-vipRed-600 rounded-xl px-4 py-3 text-white focus:outline-none text-sm resize-none"></textarea>
+                </div>
+                <button type="submit" class="w-full py-3.5 rounded-xl font-bold text-white bg-emerald-600 hover:bg-emerald-500 transition-all flex items-center justify-center space-x-2 text-sm shadow-lg shadow-emerald-600/30">
+                    <i class="fab fa-whatsapp text-lg"></i>
+                    <span>Chamar no WhatsApp</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Sample High Quality Vehicle Inventory
+        const vehicleStock = [
+            {
+                id: 1,
+                brand: 'BMW',
+                model: '320i M Sport 2.0 Turbo',
+                year: '2022/2023',
+                km: '24.000 km',
+                price: 249900,
+                transmission: 'Automático',
+                fuel: 'Flex',
+                image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800&q=80',
+                badge: 'Destaque VIP'
+            },
+            {
+                id: 2,
+                brand: 'Toyota',
+                model: 'Hilux SRX 2.8 4x4 Diesel',
+                year: '2023/2023',
+                km: '18.500 km',
+                price: 289900,
+                transmission: 'Automático',
+                fuel: 'Diesel',
+                image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80',
+                badge: 'Unico Dono'
+            },
+            {
+                id: 3,
+                brand: 'Porsche',
+                model: 'Macan 2.0 Turbo PDK',
+                year: '2021/2021',
+                km: '31.000 km',
+                price: 439900,
+                transmission: 'Automático',
+                fuel: 'Gasolina',
+                image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80',
+                badge: 'Premium'
+            },
+            {
+                id: 4,
+                brand: 'Jeep',
+                model: 'Compass Limited 1.3 Turbo',
+                year: '2022/2022',
+                km: '38.000 km',
+                price: 139900,
+                transmission: 'Automático',
+                fuel: 'Flex',
+                image: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=800&q=80',
+                badge: 'Imperdível'
+            },
+            {
+                id: 5,
+                brand: 'Honda',
+                model: 'Civic Touring 1.5 Turbo',
+                year: '2020/2021',
+                km: '45.000 km',
+                price: 128900,
+                transmission: 'CVT',
+                fuel: 'Gasolina',
+                image: 'https://images.unsplash.com/photo-1606152421802-db97b9c7a11b?auto=format&fit=crop&w=800&q=80',
+                badge: 'Revisado'
+            },
+            {
+                id: 6,
+                brand: 'Volkswagen',
+                model: 'Amarok Extreme V6 Diesel',
+                year: '2022/2022',
+                km: '29.000 km',
+                price: 224900,
+                transmission: 'Automático',
+                fuel: 'Diesel',
+                image: 'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=800&q=80',
+                badge: '4x4 V6'
+            }
+        ];
+
+        // Format Currency BRL
+        function formatMoney(amount) {
+            return amount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        // Render Vehicle Cards
+        function renderVehicles(list) {
+            const grid = document.getElementById('vehiclesGrid');
+            const noResults = document.getElementById('noResults');
+
+            if (!list || list.length === 0) {
+                grid.innerHTML = '';
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            noResults.classList.add('hidden');
+            grid.innerHTML = list.map(car => `
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between group">
+                    <div>
+                        <!-- Image Container -->
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="${car.image}" alt="${car.brand} ${car.model}" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-vipRed-600/90 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider">
+                                ${car.badge}
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-vipDark-950/80 via-transparent to-transparent"></div>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="p-6">
+                            <span class="text-xs font-bold text-zinc-400 uppercase tracking-widest">${car.brand}</span>
+                            <h3 class="text-lg font-bold text-white mt-1 mb-3 line-clamp-1">${car.model}</h3>
+
+                            <!-- Specs Grid -->
+                            <div class="grid grid-cols-2 gap-2 text-xs text-zinc-300 py-3 border-y border-zinc-800 my-4">
+                                <div class="flex items-center space-x-2">
+                                    <i class="far fa-calendar-alt text-vipRed-500"></i>
+                                    <span>${car.year}</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <i class="fas fa-road text-vipRed-500"></i>
+                                    <span>${car.km}</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <i class="fas fa-cogs text-vipRed-500"></i>
+                                    <span>${car.transmission}</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <i class="fas fa-gas-pump text-vipRed-500"></i>
+                                    <span>${car.fuel}</span>
+                                </div>
+                            </div>
+
+                            <!-- Price -->
+                            <div class="mt-4">
+                                <span class="text-xs text-zinc-400 font-medium">Valor VIP</span>
+                                <p class="text-2xl font-black text-white">${formatMoney(car.price)}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card CTA -->
+                    <div class="px-6 pb-6 pt-2">
+                        <button onclick="contactCarWhatsApp('${car.brand} ${car.model}', '${formatMoney(car.price)}')" 
+                                class="w-full py-3 rounded-xl font-bold text-sm text-white bg-emerald-600 hover:bg-emerald-500 shadow-md transition-all flex items-center justify-center space-x-2">
+                            <i class="fab fa-whatsapp text-lg"></i>
+                            <span>Tenho Interesse</span>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Apply Filters
+        function applyVehicleFilters() {
+            const brand = document.getElementById('filterBrand').value.toLowerCase();
+            const maxPrice = parseFloat(document.getElementById('filterPrice').value) || Infinity;
+            const keyword = document.getElementById('filterKeyword').value.toLowerCase().trim();
+
+            const filtered = vehicleStock.filter(car => {
+                const matchBrand = !brand || car.brand.toLowerCase() === brand;
+                const matchPrice = car.price <= maxPrice;
+                const matchKeyword = !keyword || 
+                    car.model.toLowerCase().includes(keyword) || 
+                    car.brand.toLowerCase().includes(keyword);
+
+                return matchBrand && matchPrice && matchKeyword;
+            });
+
+            renderVehicles(filtered);
+        }
+
+        // Filter by Brand Badge click
+        function filterByBrandBadge(brandName) {
+            document.getElementById('filterBrand').value = brandName;
+            document.getElementById('filterKeyword').value = '';
+            document.getElementById('filterPrice').value = '';
+            applyVehicleFilters();
+
+            // Smooth scroll to stock
+            document.getElementById('estoque').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Reset Filters
+        function resetFilters() {
+            document.getElementById('filterBrand').value = '';
+            document.getElementById('filterPrice').value = '';
+            document.getElementById('filterKeyword').value = '';
+            renderVehicles(vehicleStock);
+        }
+
+        // Direct WhatsApp Car Contact
+        function contactCarWhatsApp(carTitle, carPrice) {
+            const phone = "5582996402650";
+            const text = `Ol%C3%A1!%20Tenho%20interesse%20no%20ve%C3%ADculo%20*${encodeURIComponent(carTitle)}*%20(${encodeURIComponent(carPrice)})%20anunciado%20no%20site%20da%20VIP%20Prime%20Motors.%20Pode%20me%20passar%20mais%20detalhes%3F`;
+            window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+        }
+
+        // Lead Form Handler
+        function handleLeadSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('leadName').value.trim();
+            const phone = document.getElementById('leadPhone').value.trim();
+            const email = document.getElementById('leadEmail').value.trim();
+            const interest = document.getElementById('leadInterest').value;
+            const message = document.getElementById('leadMessage').value.trim();
+
+            const targetPhone = "5582996402650";
+            let textMessage = `*NOVO LEAD - VIP PRIME MOTORS*\n\n` +
+                `👤 *Nome:* ${name}\n` +
+                `📱 *WhatsApp:* ${phone}\n`;
+
+            if (email) textMessage += `📧 *E-mail:* ${email}\n`;
+            textMessage += `🎯 *Interesse:* ${interest}\n`;
+            if (message) textMessage += `📝 *Mensagem:* ${message}\n`;
+
+            window.open(`https://wa.me/${targetPhone}?text=${encodeURIComponent(textMessage)}`, '_blank');
+        }
+
+        // Modal Controls
+        function openLeadModal(subject) {
+            document.getElementById('modalSubject').value = subject;
+            document.getElementById('modalTitle').innerText = subject;
+            document.getElementById('leadModal').classList.remove('hidden');
+        }
+
+        function closeLeadModal() {
+            document.getElementById('leadModal').classList.add('hidden');
+        }
+
+        function handleModalSubmit(event) {
+            event.preventDefault();
+            const subject = document.getElementById('modalSubject').value;
+            const name = document.getElementById('modalName').value.trim();
+            const phone = document.getElementById('modalPhone').value.trim();
+            const msg = document.getElementById('modalMessage').value.trim();
+
+            const targetPhone = "5582996402650";
+            let text = `*SOLICITAÇÃO DE ATENDIMENTO VIP*\n\n` +
+                `📌 *Assunto:* ${subject}\n` +
+                `👤 *Nome:* ${name}\n` +
+                `📱 *WhatsApp:* ${phone}\n`;
+            if (msg) text += `💬 *Detalhes:* ${msg}\n`;
+
+            closeLeadModal();
+            window.open(`https://wa.me/${targetPhone}?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Initialize Page
+        window.addEventListener('DOMContentLoaded', () => {
+            renderVehicles(vehicleStock);
+        });
+    </script>
+</body>
+</html>
