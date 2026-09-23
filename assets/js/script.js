@@ -5,7 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // Constantes de Configuração
-  const WHATSAPP_NUMBER = "5519999999999"; // Substitua pelo WhatsApp oficial da Ótica Limeira (DDD + Número)
+  const WHATSAPP_NUMBER = "5582996402650"; // Substitua pelo WhatsApp oficial da Ótica Limeira (DDD + Número)
 
   /* ==========================================================================
      1. NAVBAR STICKY & SCROLL EFFECT
