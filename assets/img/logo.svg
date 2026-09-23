@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 120" width="100%" height="100%">
+  <defs>
+    <!-- Gradiente esférico 3D para a esfera vermelha da Ótica Limeira -->
+    <radialGradient id="sphereRedGradient" cx="38%" cy="32%" r="65%">
+      <stop offset="0%" stop-color="#FF6B6B" />
+      <stop offset="35%" stop-color="#EF4444" />
+      <stop offset="70%" stop-color="#DC2626" />
+      <stop offset="90%" stop-color="#991B1B" />
+      <stop offset="100%" stop-color="#5B0E0E" />
+    </radialGradient>
+    
+    <!-- Brilho especular superior (reflexo glossy) -->
+    <linearGradient id="glossHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Sombra projetada suave -->
+    <filter id="subtleDropShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <!-- Fundo escuro sutil para pré-visualização (opcional em modo claro/escuro) -->
+  <g id="logo-icon" filter="url(#subtleDropShadow)">
+    <!-- Esfera Vermelha 3D -->
+    <circle cx="60" cy="60" r="46" fill="url(#sphereRedGradient)" />
+    
+    <!-- Brilho curvo superior da esfera -->
+    <ellipse cx="56" cy="38" rx="26" ry="15" fill="url(#glossHighlight)" />
+
+    <!-- Letra L estilizada branca na esfera -->
+    <path d="M 44 32 
+             L 56 32 
+             L 56 72 
+             L 82 72 
+             L 82 84 
+             L 44 84 
+             Z" 
+          fill="#FFFFFF" />
+  </g>
+
+  <!-- Tipografia "ÓTICA LIMEIRA" -->
+  <!-- Linha 1: ÓTICA -->
+  <text x="122" y="55" 
+        font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" 
+        font-size="34" 
+        font-weight="900" 
+        letter-spacing="3" 
+        fill="#FFFFFF">
+    ÓTICA
+  </text>
+
+  <!-- Linha 2: LIMEIRA -->
+  <text x="124" y="90" 
+        font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" 
+        font-size="28" 
+        font-weight="600" 
+        letter-spacing="5" 
+        fill="#E4E4E7">
+    LIMEIRA
+  </text>
+</svg>
