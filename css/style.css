@@ -1,0 +1,143 @@
+/* ==========================================================================
+   COLÉGIO MICHELINI - ESTILOS ADICIONAIS E ANIMAÇÕES
+   ========================================================================== */
+
+/* Comportamento de Rolagem Suave com compensação do Menu Fixo */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+/* Tipografia Base */
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  color: #1E293B;
+  background-color: #F8FAFC;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Barra de rolagem personalizada com as cores da identidade */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #85191C;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5E1113;
+}
+
+/* Efeito Glassmorphism para o Header ao rolar */
+.header-scrolled {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.08);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+/* Animações Flutuantes Sutis */
+@keyframes subtleFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: subtleFloat 5s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: subtleFloat 6s ease-in-out 2s infinite;
+}
+
+/* Efeito de Brilho / Gradiente Dinâmico nos Cards de Destaque */
+.gold-glow {
+  box-shadow: 0 10px 30px -10px rgba(243, 178, 27, 0.35);
+}
+
+.wine-glow {
+  box-shadow: 0 10px 30px -10px rgba(133, 25, 28, 0.35);
+}
+
+/* Transições das Abas de Níveis de Ensino */
+.tab-content {
+  display: none;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.tab-content.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Estilização dos Pontos e Slides do Carrossel */
+.carousel-slide {
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.carousel-dot.active {
+  background-color: #85191C;
+  width: 2rem;
+}
+
+/* Estilo do Menu Hambúrguer com Animação para "X" */
+.hamburger-line {
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-open .line-1 {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-open .line-2 {
+  opacity: 0;
+}
+
+.menu-open .line-3 {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Estilização para o Toast de Notificação */
+#toast-notification {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+/* Efeito Hover nos Cards de Diferenciais e Galeria */
+.interactive-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.interactive-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Linha decorativa de cabeçalhos */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
